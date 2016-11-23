@@ -1,8 +1,6 @@
 module.exports = {
   entry: './app/index.js',
   output: {
-      path: __dirname,
-      publicPath: '/',
       filename: 'bundle.js'
     },
     module: {
@@ -12,6 +10,10 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
+      },
+      {
+        test: /\.scss$/,
+        loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
       }]
     },
     resolve: {
