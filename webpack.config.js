@@ -16,6 +16,9 @@ module.exports = {
         loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
       }]
     },
+    sassLoader: {
+      includePaths: [ 'client/style' ]
+    },
     resolve: {
       extensions: ['', '.js', '.jsx']
     },
