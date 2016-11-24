@@ -13,9 +13,9 @@ export default class NavBar extends Component {
         </a>
         <a href="#" className="tiny-20 nav-item" onClick={this.onNavBarItemClick}>Photos</a>
         <a href="#" className="tiny-20 nav-item" onClick={this.onNavBarMenuClick}>Menu</a>
-        <a href="#" className="tiny-33 nav-item" onClick={this.onNavBarItemClick}>Press</a>
-        <a href="#" className="tiny-33 nav-item" onClick={this.onNavBarItemClick}>About</a>
-        <a href="#" className="tiny-33 nav-item" onClick={this.onNavBarItemClick}>Contact</a>
+        <a href="#" className="tiny-33 nav-item" onClick={this.onNavBarItemClick}>PRESS</a>
+        <a href="#" className="tiny-33 nav-item" onClick={this.onNavBarItemClick}>ABOUT</a>
+        <a href="#" className="tiny-33 nav-item" onClick={this.onNavBarItemClick}>CONTACT</a>
       </div>
     );
   }
