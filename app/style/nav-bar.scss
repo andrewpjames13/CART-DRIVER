@@ -19,6 +19,14 @@
     position: relative;
     text-align: center;
     color: $black;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 300ms ease-in-out;
+
+    &.active {
+      color: $green;
+    }
 
     .call-me {
       position: absolute;
@@ -33,5 +41,14 @@
       -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);
       box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);
     }
+  }
+
+  .border-top {
+    border-top: $gray solid 1px;
+  }
+
+  .border-left-right {
+    border-left:  $gray solid 1px;
+    border-right:  $gray solid 1px;
   }
 }
