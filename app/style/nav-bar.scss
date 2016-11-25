@@ -1,8 +1,8 @@
 .nav-bar {
-  height: 104px;
+  height: 110px;
   background-color: $white;
   position: fixed;
-  bottom: -52px;
+  bottom: -58px;
   left: 0;
   right: 0;
   transition: bottom 300ms ease-in-out;
@@ -15,25 +15,54 @@
   }
 
   .nav-item {
-    height: 52px;
+    height: 58px;
     position: relative;
     text-align: center;
     color: $black;
     padding-top: 20px;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 900;
+    font-size: 16px;
     transition: color 300ms ease-in-out;
 
     &.active {
       color: $green;
     }
 
+    .svg-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: fill 300ms ease-in-out;
+
+      &.active {
+        svg {
+          fill: $green;
+        }
+      }
+
+      svg {
+        position: absolute;
+        top: 17%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &.active {
+          fill: $green;
+        }
+
+        &.home-icon {
+          width: 30px;
+          height: auto;
+        }
+      }
+    }
+
     .call-me {
       position: absolute;
       left: 50%;
       top: 50%;
-      height: 82px;
-      width: 82px;
+      height: 90px;
+      width: 90px;
       background-color: $white;
       border-radius: 50%;
       transform: translate(-50%, -50%);
