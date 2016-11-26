@@ -9,4 +9,22 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  color: $white;
+
+  .home-content {
+    position: absolute;
+    padding: 5%;
+    top: 40%;
+    transform: translateY(-50%);
+    @include VerticalGradient();
+
+    .clock-numbers {
+      display: inline-block;
+    }
+
+    .clock-letters {
+      display: inline-block;
+      margin-right: 15px;
+    }
+  }
 }
