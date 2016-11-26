@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import NavBarItemIcon from './nav_bar_item_icon';
 
 class NavBarItem extends Component {
 
@@ -7,21 +8,9 @@ class NavBarItem extends Component {
     const section = this.props.section;
     var el = null;
 
-    if (section.name === 'home' || section.name === 'menu' || section.name ==='photos' || section.name === 'nav-menu') {
+    if (section.name === 'home' || section.name === 'menu' || section.name ==='photos' || section.name === 'nav-menu' || section.name === 'call') {
       el = (
-        <a href={"#"+section.name} className="tiny-20 nav-item">
-          <div className="svg-container">
-            <svg version="1.1" className={section.name+"-icon"} x="0px" y="0px" viewBox="0 0 24 24">
-              <path d={section.svgPath}/>
-            </svg>
-          </div>
-        </a>
-      );
-    } else if (section.name === 'call') {
-      el = (
-        <a href={"#"+section.name} className="tiny-20 nav-item">
-          <div className="call-me"></div>
-        </a>
+        <NavBarItemIcon section={section} />
       );
     } else {
       el = (

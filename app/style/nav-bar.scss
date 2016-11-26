@@ -45,15 +45,17 @@
         top: 17%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 30px;
+        height: auto;
 
         &.active {
           fill: $green;
         }
 
-        &.home-icon {
-          width: 30px;
-          height: auto;
-        }
+        // &.home-icon {
+        //   width: 30px;
+        //   height: auto;
+        // }
       }
     }
 
