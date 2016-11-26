@@ -44,7 +44,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <NavBar sections={this.state.sections}/>
+      <NavBar sections={this.state.sections} activeSection={this.state.activeSection}/>
     );
   }
 }
