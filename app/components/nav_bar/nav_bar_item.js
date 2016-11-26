@@ -11,7 +11,7 @@ class NavBarItem extends Component {
     const section = this.props.section;
     let el = null;
 
-    if (section.name === 'home' || section.name === 'menu' || section.name ==='photos' || section.name === 'nav-menu' || section.name === 'call') {
+    if (section.svgPath) {
       el = (
         <NavBarItemIcon section={section} onClick={this.handleClick.bind(this)} activeSection={this.props.activeSection} />
       );
