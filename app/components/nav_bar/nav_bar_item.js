@@ -9,7 +9,7 @@ class NavBarItem extends Component {
 
   render() {
     const section = this.props.section;
-    var el = null;
+    let el = null;
 
     if (section.name === 'home' || section.name === 'menu' || section.name ==='photos' || section.name === 'nav-menu' || section.name === 'call') {
       el = (

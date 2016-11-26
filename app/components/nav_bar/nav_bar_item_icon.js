@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-var classNames = require('classnames');
 
 class NavBarItemIcon extends Component {
 
@@ -11,9 +10,9 @@ class NavBarItemIcon extends Component {
 
   render() {
     const section = this.props.section;
-    var classNames = require('classnames');
-    var el = null;
-    var listClasses = classNames({
+    const classNames = require('classnames');
+    let el = null;
+    let listClasses = classNames({
       'tiny-20': true,
       'nav-item': true,
       'active': this.props.activeSection === section.name,

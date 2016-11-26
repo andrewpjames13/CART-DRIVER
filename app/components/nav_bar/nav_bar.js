@@ -23,8 +23,8 @@ class NavBar extends Component {
   }
 
   render() {
-    var classNames = require('classnames');
-    var listClasses = classNames({
+    const classNames = require('classnames');
+    let listClasses = classNames({
       'nav-bar': true,
       'open': this.state.open
     });
