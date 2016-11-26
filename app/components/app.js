@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-
 import NavBar from './nav_bar/nav_bar';
+import HomeScreen from './home_screen';
 
 export default class App extends Component {
   constructor(props) {
@@ -44,7 +44,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <NavBar sections={this.state.sections} activeSection={this.state.activeSection}/>
+      <div>
+        <HomeScreen />
+        <NavBar sections={this.state.sections} activeSection={this.state.activeSection} />
+      </div>
     );
   }
 }
