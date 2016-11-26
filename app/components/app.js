@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import NavBar from './nav_bar/nav_bar';
 import HomeScreen from './home_screen';
+import ScrollContainer from './scroll_container';
 
 export default class App extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export default class App extends Component {
     return (
       <div>
         <HomeScreen />
+        <ScrollContainer />
         <NavBar sections={this.state.sections} activeSection={this.state.activeSection} />
       </div>
     );
