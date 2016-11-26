@@ -27,6 +27,7 @@ class NavBarItemIcon extends Component {
                 <path d={section.svgPath}/>
               </svg>
             </div>
+            <img src="images/svgCallCircle.png"></img>
           </div>
         </a>
       );

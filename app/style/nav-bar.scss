@@ -42,30 +42,55 @@
         transform: translate(-50%, -50%);
         width: 30px;
         height: auto;
+
+        &.call-icon {
+          top: 51%;
+          width: 40px
+        }
+
+        &.photos-icon {
+          left: 60%;
+          width: 28px;
+        }
+
+        &.menu-icon {
+          left: 40%;
+        }
+
+        &.nav-menu-icon {
+          width: 25px;
+        }
       }
     }
 
     .call-me {
       position: absolute;
       left: 50%;
-      top: 50%;
-      height: 90px;
-      width: 90px;
+      top: 44%;
+      height: 25vw;
+      width: 25vw;
+      z-index: 1;
       background-color: $white;
       border-radius: 50%;
       transform: translate(-50%, -50%);
       -webkit-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);
       -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);
       box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
   .border-top {
     border-top: $gray solid 1px;
-  }
-
-  .border-left-right {
-    border-left:  $gray solid 1px;
-    border-right:  $gray solid 1px;
+    &:nth-child(odd) {
+      border-left:  $gray solid 1px;
+      border-right:  $gray solid 1px;
+    }
   }
 }
