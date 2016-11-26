@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 
-import NavBar from './nav_bar';
+import NavBar from './nav_bar/nav_bar';
 
 export default class App extends Component {
   constructor(props) {

@@ -35,12 +35,6 @@
       height: 100%;
       transition: fill 300ms ease-in-out;
 
-      &.active {
-        svg {
-          fill: $green;
-        }
-      }
-
       svg {
         position: absolute;
         top: 17%;
@@ -48,15 +42,6 @@
         transform: translate(-50%, -50%);
         width: 30px;
         height: auto;
-
-        &.active {
-          fill: $green;
-        }
-
-        // &.home-icon {
-        //   width: 30px;
-        //   height: auto;
-        // }
       }
     }
 
