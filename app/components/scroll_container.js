@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import MenuList from '../containers/menu_list';
 
 class ScrollContainer extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class ScrollContainer extends Component {
   render() {
     return (
       <div className="scroll-container" style={{'width': this.state.containerWidth + '%'}} >
+        <MenuList />
       </div>
     );
   }
