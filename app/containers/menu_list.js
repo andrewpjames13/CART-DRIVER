@@ -1,16 +1,18 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getMenuItems } from '../actions/index';
+import * as actions from '../actions';
 import { bindActionCreators } from 'redux';
 
 class MenuList extends Component {
+  componentWillMount() {
+    this.props.fetchData();
+  }
+
   renderList() {
     return this.props.menuItems.map((item) => {
       return (
-        <li
-          key={item.title}
-          onClick={() => this.props.getMenuItems(item)}>
+        <li key={item.title} >
           {item.title}
         </li>
       );
@@ -32,8 +34,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({getMenuItems: getMenuItems}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MenuList);
+export default connect(mapStateToProps, actions)(MenuList);

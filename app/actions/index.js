@@ -1,7 +1,6 @@
 /*jshint esversion: 6 */
-export function getMenuItems(menu) {
+export function fetchData() {
   return {
-    type: 'GET_MENU_ITEMS',
-    payload: menu
+    type: 'Fetch_DATA'
   };
 }
