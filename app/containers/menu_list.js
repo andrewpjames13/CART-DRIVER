@@ -5,25 +5,49 @@ import * as actions from '../actions';
 import { bindActionCreators } from 'redux';
 
 class MenuList extends Component {
-  componentWillMount() {
-    this.props.fetchData();
+  renderDescriptionList(array) {
+      return array.map((item) => {
+        return (
+          <li>
+            { item }
+          </li>
+        );
+      });
   }
 
-  renderList() {
-    return this.props.menuItems.map((item) => {
+  renderMenuItemsList(array) {
+    return array.map((item) => {
       return (
-        <li key={item.title} >
-          {item.title}
+        <li key={item.name} >
+          {item.name}
+          <ul>
+            { this.renderDescriptionList(item.items) }
+          </ul>
         </li>
+      );
+    });
+  }
+
+  renderMenus() {
+    return this.props.menuItems.sections.map((section) => {
+      return (
+        <div>
+          <h1 key={section.title} >
+            {section.title}
+          </h1>
+          <ul>
+            { this.renderMenuItemsList(section.menuItems) }
+          </ul>
+        </div>
       );
     });
   }
 
   render() {
     return (
-      <ul>
-        {this.renderList()}
-      </ul>
+      <div>
+        { this.renderMenus() }
+      </div>
     );
   }
 }
