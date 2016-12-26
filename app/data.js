@@ -54,22 +54,22 @@ export function menuItems() {
       },
       {
         "title": "Drinks",
+        "sectionDescription": "",
         "menuItems": [
           {
-            "name": "Beer",
+            "name": "Draft Beer",
             "items": [
-              "drink one",
-              "drink two"
+              "Prost Pilsner"
             ],
-            "price": "10"
+            "price": "3/6/11"
           },
           {
-            "name": "Wine",
+            "name": "Wine by the glass",
             "items": [
               "wine one",
               "wine two"
            ],
-            "price": "12"
+            "price": "9"
           }
         ]
       }
