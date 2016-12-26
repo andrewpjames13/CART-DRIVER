@@ -1,0 +1,25 @@
+.menu-section {
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  .section-description {
+    margin-bottom: 10px;
+  }
+
+  .menu-item {
+    margin: 12px 0;
+
+    .item-price {
+      position: relative;
+      float: right;
+      &:after {
+        position: absolute;
+        content: "$";
+        top: 3px;
+        left: -13px;
+        color: $gray;
+        font-size: 2rem;
+      }
+    }
+  }
+}

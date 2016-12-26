@@ -6,24 +6,29 @@ import { bindActionCreators } from 'redux';
 
 class MenuList extends Component {
   renderDescriptionList(array) {
-      return array.map((item) => {
-        return (
-          <li>
-            { item }
-          </li>
-        );
-      });
+    return array.map((item) => {
+      return (
+        <li key={item} >
+          { item }
+        </li>
+      );
+    });
   }
 
   renderMenuItemsList(array) {
     return array.map((item) => {
       return (
-        <li key={item.name} >
-          {item.name}
-          <ul>
-            { this.renderDescriptionList(item.items) }
-          </ul>
-        </li>
+        <div key={item.name} className="menu-item tiny-100">
+          <div className="tiny-80">
+            <h4 className="bold">{item.name}</h4>
+            <ul>
+              { this.renderDescriptionList(item.items) }
+            </ul>
+          </div>
+          <div className="tiny-20">
+            <h2 className="item-price">{ item.price }</h2>
+          </div>
+        </div>
       );
     });
   }
@@ -31,13 +36,13 @@ class MenuList extends Component {
   renderMenus() {
     return this.props.menuItems.sections.map((section) => {
       return (
-        <div>
-          <h1 key={section.title} >
+        <div className="menu-section">
+          <h3 key={section.title} >
             {section.title}
-          </h1>
-          <ul>
-            { this.renderMenuItemsList(section.menuItems) }
-          </ul>
+          </h3>
+          <hr></hr>
+          <p className="section-description">{ section.sectionDescription }</p>
+          { this.renderMenuItemsList(section.menuItems) }
         </div>
       );
     });
