@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import MenuList from '../containers/menu_list';
 import Photos from '../containers/photos';
+import About from '../containers/about';
 
 class ScrollContainer extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class ScrollContainer extends Component {
       <div className="scroll-container" style={{'width': this.state.containerWidth + '%'}} >
         <MenuList />
         <Photos />
+        <About />
       </div>
     );
   }
