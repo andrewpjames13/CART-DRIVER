@@ -4,11 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  @include backgroundImageCover;
   color: $white;
 
   .home-content {
