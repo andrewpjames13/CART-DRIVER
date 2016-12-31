@@ -1,11 +1,11 @@
 .scroll-container {
   position: absolute;
-  top: 82vh;
+  top: 88vh;
   left: 50%;
   height: auto;
   max-width: 100%;
   min-width: 90%;
-  padding: 20px;
+  padding: $layoutSpacing;
   background-color: $white;
   will-change: transform;
   transform: translateX(-50%);
