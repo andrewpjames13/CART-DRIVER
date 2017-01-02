@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { bindActionCreators } from 'redux';
+import HeadLine from '../components/head_line';
 
 class MenuList extends Component {
   renderDescriptionList(array) {
@@ -37,10 +38,7 @@ class MenuList extends Component {
     return this.props.menuItems.sections.map((section) => {
       return (
         <div className="menu-section">
-          <h3 key={section.title} >
-            {section.title}
-          </h3>
-          <hr></hr>
+          <HeadLine title={section.title} />
           <p className="section-description">{ section.sectionDescription }</p>
           { this.renderMenuItemsList(section.menuItems) }
         </div>

@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import HeadLine from '../components/head_line';
 
 class Photos extends Component {
   render() {
@@ -7,10 +8,7 @@ class Photos extends Component {
       <div className="photo-section">
         <div className="photo-section--background" style={{'backgroundImage': 'url(images/cart-driver-patio.jpg)'}}></div>
         <div className="photo-section--content">
-          <h3>
-            Photos
-          </h3>
-          <hr></hr>
+          <HeadLine title="Photos" />
           <div className="tile">
             <img src="images/cart-driver-patio.jpg"/>
           </div>

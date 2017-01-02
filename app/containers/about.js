@@ -1,14 +1,12 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import HeadLine from '../components/head_line';
 
 class About extends Component {
   render() {
     return (
       <div className="about-section">
-        <h3>
-          About
-        </h3>
-        <hr></hr>
+        <HeadLine title="About"/>
         <p>
           Tucked in a 640 square foot shipping container space in the heart of Denver's RiNo neighborhood, you'll find Cart Driver. Here, our team serves premium wood fired pizzas, freshly flown in oysters, prosecco on tap, seasonal market plates, Italian style spritzes, local brews and craft cocktails.
         </p>
