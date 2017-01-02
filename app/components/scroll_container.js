@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MenuList from '../containers/menu_list';
 import Photos from '../containers/photos';
 import About from '../containers/about';
+import Contact from '../containers/contact';
 
 class ScrollContainer extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class ScrollContainer extends Component {
         <MenuList />
         <Photos />
         <About />
+        <Contact />
       </div>
     );
   }

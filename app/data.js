@@ -1,13 +1,4 @@
 /*jshint esversion: 6 */
-// export function menuItems() {
-//   return [
-//     { title: 'Hello' },
-//     { title: 'Pep' },
-//     { title: 'Sausage' },
-//     { title: 'Cheese' }
-//   ];
-// }
-
 export function menuItems() {
   return  {
     "sections": [

@@ -1,0 +1,18 @@
+.contact-section {
+  margin-left: -$layoutSpacing;
+  margin-right: -$layoutSpacing;
+  height: 100vh;
+  position: relative;
+
+  &--content {
+    padding: $layoutSpacing;
+  }
+
+  &--social {
+    svg {
+      width: 30px;
+      height: auto;
+      float: left;
+    }
+  }
+}
