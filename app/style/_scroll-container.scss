@@ -7,7 +7,5 @@
   min-width: 90%;
   padding: $layoutSpacing $layoutSpacing 0 $layoutSpacing;
   background-color: $white;
-  will-change: transform;
   transform: translateX(-50%);
-  transition: width 100ms;
 }

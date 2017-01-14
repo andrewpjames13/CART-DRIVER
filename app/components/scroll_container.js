@@ -10,14 +10,16 @@ class ScrollContainer extends Component {
     super(props);
 
     this.state = {
-      containerWidth: 90,
-      lastLocation: null
+      containerWidth: 90
     };
   }
 
   componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll.bind(this));
-      // this.setState({offsetTop: document.querySelector('.scroll-container').offsetTop});
+    let scroll = new Event('scroll');
+    window.addEventListener('scroll', this.handleScroll.bind(this), false);
+    window.dispatchEvent(scroll);
+
+    window.addEventListener('resize', this.handleResize.bind(this), false);
   }
 
   componentWillUnmount() {
@@ -26,31 +28,26 @@ class ScrollContainer extends Component {
 
   handleScroll(event) {
     const innerHeight = window.innerHeight-100;
-    let currentLocation = event.srcElement.body.scrollTop;
+    let currentLocation = window.pageYOffset || document.documentElement.scrollTop;
 
     if (currentLocation === 0) {
       this.setState({
-        containerWidth: 90,
-        lastLocation: 1
+        containerWidth: 90
       });
-    } else if (this.state.lastLocation < currentLocation) {
-      if (currentLocation >= innerHeight) {
-        this.setState({
-          containerWidth: 100,
-          lastLocation: 99
-        });
-      } else {
-        this.setState({
-          containerWidth: this.state.containerWidth + 0.2,
-          lastLocation: currentLocation
-        });
-      }
-    } else if (this.state.lastLocation > currentLocation) {
+    } else if (currentLocation >= innerHeight) {
       this.setState({
-        containerWidth: this.state.containerWidth - 0.2,
-        lastLocation: currentLocation
+        containerWidth: 100
+      });
+    } else {
+      let percent = (90 + (currentLocation / innerHeight) * 10);
+      this.setState({
+        containerWidth: percent
       });
     }
+  }
+
+  handleResize(event) {
+    this.handleScroll();
   }
 
   render() {
