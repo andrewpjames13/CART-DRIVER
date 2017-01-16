@@ -76,7 +76,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Stylesheets
-	__webpack_require__(/*! ./style/app.scss */ 277); /*jshint esversion: 6 */
+	__webpack_require__(/*! ./style/app.scss */ 289); /*jshint esversion: 6 */
 
 	var createStoreWithMiddleware = (0, _redux.applyMiddleware)(_reduxPromise2.default)(_redux.createStore);
 
@@ -193,7 +193,7 @@
 	};
 
 	module.exports = React;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 3 */
@@ -749,17 +749,6 @@
 	  }
 	};
 
-	var fiveArgumentPooler = function (a1, a2, a3, a4, a5) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2, a3, a4, a5);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2, a3, a4, a5);
-	  }
-	};
-
 	var standardReleaser = function (instance) {
 	  var Klass = this;
 	  !(instance instanceof Klass) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Trying to release an instance into a pool of a different type.') : _prodInvariant('25') : void 0;
@@ -799,12 +788,11 @@
 	  oneArgumentPooler: oneArgumentPooler,
 	  twoArgumentPooler: twoArgumentPooler,
 	  threeArgumentPooler: threeArgumentPooler,
-	  fourArgumentPooler: fourArgumentPooler,
-	  fiveArgumentPooler: fiveArgumentPooler
+	  fourArgumentPooler: fourArgumentPooler
 	};
 
 	module.exports = PooledClass;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 7 */
@@ -882,12 +870,18 @@
 	 * will remain to ensure logic does not differ in production.
 	 */
 
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
+	var validateFormat = function validateFormat(format) {};
+
+	if (process.env.NODE_ENV !== 'production') {
+	  validateFormat = function validateFormat(format) {
 	    if (format === undefined) {
 	      throw new Error('invariant requires an error message argument');
 	    }
-	  }
+	  };
+	}
+
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
 
 	  if (!condition) {
 	    var error;
@@ -908,7 +902,7 @@
 	}
 
 	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 9 */
@@ -1257,7 +1251,7 @@
 	};
 
 	module.exports = ReactElement;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 10 */
@@ -1370,7 +1364,7 @@
 	}
 
 	module.exports = warning;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 12 */
@@ -1450,7 +1444,7 @@
 	}
 
 	module.exports = canDefineProperty;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 14 */
@@ -1661,7 +1655,7 @@
 	}
 
 	module.exports = traverseAllChildren;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 16 */
@@ -1901,7 +1895,7 @@
 	}
 
 	module.exports = ReactComponent;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 19 */
@@ -2005,7 +1999,7 @@
 	};
 
 	module.exports = ReactNoopUpdateQueue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 20 */
@@ -2033,7 +2027,7 @@
 	}
 
 	module.exports = emptyObject;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 21 */
@@ -2807,7 +2801,7 @@
 	};
 
 	module.exports = ReactClass;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 23 */
@@ -2840,7 +2834,7 @@
 	}
 
 	module.exports = ReactPropTypeLocationNames;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 24 */
@@ -3018,7 +3012,7 @@
 	};
 
 	module.exports = ReactDOMFactories;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 25 */
@@ -3191,7 +3185,14 @@
 	    // We warn in this case but don't throw. We expect the element creation to
 	    // succeed and there will likely be errors in render.
 	    if (!validType) {
-	      process.env.NODE_ENV !== 'production' ? warning(false, 'React.createElement: type should not be null, undefined, boolean, or ' + 'number. It should be a string (for DOM elements) or a ReactClass ' + '(for composite components).%s', getDeclarationErrorAddendum()) : void 0;
+	      if (typeof type !== 'function' && typeof type !== 'string') {
+	        var info = '';
+	        if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+	          info += ' You likely forgot to export your component from the file ' + 'it\'s defined in.';
+	        }
+	        info += getDeclarationErrorAddendum();
+	        process.env.NODE_ENV !== 'production' ? warning(false, 'React.createElement: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', type == null ? type : typeof type, info) : void 0;
+	      }
 	    }
 
 	    var element = ReactElement.createElement.apply(this, arguments);
@@ -3253,7 +3254,7 @@
 	};
 
 	module.exports = ReactElementValidator;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 26 */
@@ -3595,7 +3596,7 @@
 	};
 
 	module.exports = ReactComponentTreeHook;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 27 */
@@ -3690,7 +3691,7 @@
 	}
 
 	module.exports = checkReactTypeSpec;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 28 */
@@ -4156,7 +4157,7 @@
 	}
 
 	module.exports = ReactPropTypes;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 30 */
@@ -4177,7 +4178,7 @@
 
 	'use strict';
 
-	module.exports = '15.4.1';
+	module.exports = '15.4.2';
 
 /***/ },
 /* 31 */
@@ -4223,7 +4224,7 @@
 	}
 
 	module.exports = onlyChild;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 32 */
@@ -4354,7 +4355,7 @@
 	}
 
 	module.exports = ReactDOM;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 34 */
@@ -4386,6 +4387,13 @@
 	var Flags = ReactDOMComponentFlags;
 
 	var internalInstanceKey = '__reactInternalInstance$' + Math.random().toString(36).slice(2);
+
+	/**
+	 * Check if a given node should be cached.
+	 */
+	function shouldPrecacheNode(node, nodeID) {
+	  return node.nodeType === 1 && node.getAttribute(ATTR_NAME) === String(nodeID) || node.nodeType === 8 && node.nodeValue === ' react-text: ' + nodeID + ' ' || node.nodeType === 8 && node.nodeValue === ' react-empty: ' + nodeID + ' ';
+	}
 
 	/**
 	 * Drill down (through composites and empty components) until we get a host or
@@ -4452,7 +4460,7 @@
 	    }
 	    // We assume the child nodes are in the same order as the child instances.
 	    for (; childNode !== null; childNode = childNode.nextSibling) {
-	      if (childNode.nodeType === 1 && childNode.getAttribute(ATTR_NAME) === String(childID) || childNode.nodeType === 8 && childNode.nodeValue === ' react-text: ' + childID + ' ' || childNode.nodeType === 8 && childNode.nodeValue === ' react-empty: ' + childID + ' ') {
+	      if (shouldPrecacheNode(childNode, childID)) {
 	        precacheNode(childInst, childNode);
 	        continue outer;
 	      }
@@ -4550,7 +4558,7 @@
 	};
 
 	module.exports = ReactDOMComponentTree;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 35 */
@@ -4814,7 +4822,7 @@
 	};
 
 	module.exports = DOMProperty;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 37 */
@@ -5547,7 +5555,7 @@
 	};
 
 	module.exports = EventPropagators;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 42 */
@@ -5833,7 +5841,7 @@
 	};
 
 	module.exports = EventPluginHub;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 43 */
@@ -6096,7 +6104,7 @@
 	};
 
 	module.exports = EventPluginRegistry;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 44 */
@@ -6330,7 +6338,7 @@
 	};
 
 	module.exports = EventPluginUtils;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 45 */
@@ -6415,7 +6423,7 @@
 	}
 
 	module.exports = ReactErrorUtils;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 46 */
@@ -6481,7 +6489,7 @@
 	}
 
 	module.exports = accumulateInto;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 47 */
@@ -6741,17 +6749,6 @@
 	  }
 	};
 
-	var fiveArgumentPooler = function (a1, a2, a3, a4, a5) {
-	  var Klass = this;
-	  if (Klass.instancePool.length) {
-	    var instance = Klass.instancePool.pop();
-	    Klass.call(instance, a1, a2, a3, a4, a5);
-	    return instance;
-	  } else {
-	    return new Klass(a1, a2, a3, a4, a5);
-	  }
-	};
-
 	var standardReleaser = function (instance) {
 	  var Klass = this;
 	  !(instance instanceof Klass) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Trying to release an instance into a pool of a different type.') : _prodInvariant('25') : void 0;
@@ -6791,12 +6788,11 @@
 	  oneArgumentPooler: oneArgumentPooler,
 	  twoArgumentPooler: twoArgumentPooler,
 	  threeArgumentPooler: threeArgumentPooler,
-	  fourArgumentPooler: fourArgumentPooler,
-	  fiveArgumentPooler: fiveArgumentPooler
+	  fourArgumentPooler: fourArgumentPooler
 	};
 
 	module.exports = PooledClass;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 51 */
@@ -7155,7 +7151,7 @@
 	    process.env.NODE_ENV !== 'production' ? warning(warningCondition, 'This synthetic event is reused for performance reasons. If you\'re seeing this, ' + 'you\'re %s `%s` on a released/nullified synthetic event. %s. ' + 'If you must keep the original synthetic event around, use event.persist(). ' + 'See https://fb.me/react-event-pooling for more information.', action, propName, result) : void 0;
 	  }
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 54 */
@@ -7786,7 +7782,7 @@
 	};
 
 	module.exports = ReactUpdates;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 57 */
@@ -7913,7 +7909,7 @@
 	}();
 
 	module.exports = PooledClass.addPoolingTo(CallbackQueue);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 58 */
@@ -8118,7 +8114,7 @@
 	};
 
 	module.exports = ReactReconciler;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 60 */
@@ -8316,7 +8312,7 @@
 	};
 
 	module.exports = ReactOwner;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 62 */
@@ -8348,7 +8344,7 @@
 	}
 
 	module.exports = { debugTool: debugTool };
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 63 */
@@ -8717,7 +8713,7 @@
 	}
 
 	module.exports = ReactDebugTool;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 64 */
@@ -8762,7 +8758,7 @@
 	};
 
 	module.exports = ReactInvalidSetStateWarningHook;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 65 */
@@ -9107,7 +9103,7 @@
 	};
 
 	module.exports = TransactionImpl;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 69 */
@@ -10132,7 +10128,7 @@
 	};
 
 	module.exports = DOMChildrenOperations;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 81 */
@@ -10673,7 +10669,7 @@
 	};
 
 	module.exports = Danger;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 88 */
@@ -10765,7 +10761,7 @@
 	}
 
 	module.exports = createNodesFromMarkup;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 89 */
@@ -10900,7 +10896,7 @@
 	}
 
 	module.exports = createArrayFromMixed;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 90 */
@@ -11003,7 +10999,7 @@
 	}
 
 	module.exports = getMarkupWrap;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 91 */
@@ -11736,12 +11732,18 @@
 	    } else {
 	      var contentToUse = CONTENT_TYPES[typeof props.children] ? props.children : null;
 	      var childrenToUse = contentToUse != null ? null : props.children;
+	      // TODO: Validate that text is allowed as a child of this node
 	      if (contentToUse != null) {
-	        // TODO: Validate that text is allowed as a child of this node
-	        if (process.env.NODE_ENV !== 'production') {
-	          setAndValidateContentChildDev.call(this, contentToUse);
+	        // Avoid setting textContent when the text is empty. In IE11 setting
+	        // textContent on a text area will cause the placeholder to not
+	        // show within the textarea until it has been focused and blurred again.
+	        // https://github.com/facebook/react/issues/6731#issuecomment-254874553
+	        if (contentToUse !== '') {
+	          if (process.env.NODE_ENV !== 'production') {
+	            setAndValidateContentChildDev.call(this, contentToUse);
+	          }
+	          DOMLazyTree.queueText(lazyTree, contentToUse);
 	        }
-	        DOMLazyTree.queueText(lazyTree, contentToUse);
 	      } else if (childrenToUse != null) {
 	        var mountImages = this.mountChildren(childrenToUse, transaction, context);
 	        for (var i = 0; i < mountImages.length; i++) {
@@ -12047,7 +12049,7 @@
 	_assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
 
 	module.exports = ReactDOMComponent;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 93 */
@@ -12329,7 +12331,7 @@
 	};
 
 	module.exports = CSSPropertyOperations;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 96 */
@@ -12657,7 +12659,7 @@
 	}
 
 	module.exports = dangerousStyleValue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 100 */
@@ -13025,7 +13027,7 @@
 	};
 
 	module.exports = DOMPropertyOperations;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 104 */
@@ -13709,7 +13711,17 @@
 	      }
 	    } else {
 	      if (props.value == null && props.defaultValue != null) {
-	        node.defaultValue = '' + props.defaultValue;
+	        // In Chrome, assigning defaultValue to certain input types triggers input validation.
+	        // For number inputs, the display value loses trailing decimal points. For email inputs,
+	        // Chrome raises "The specified value <x> is not a valid email address".
+	        //
+	        // Here we check to see if the defaultValue has actually changed, avoiding these problems
+	        // when the user is inputting text
+	        //
+	        // https://github.com/facebook/react/issues/7253
+	        if (node.defaultValue !== '' + props.defaultValue) {
+	          node.defaultValue = '' + props.defaultValue;
+	        }
 	      }
 	      if (props.checked == null && props.defaultChecked != null) {
 	        node.defaultChecked = !!props.defaultChecked;
@@ -13817,7 +13829,7 @@
 	}
 
 	module.exports = ReactDOMInput;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 109 */
@@ -13960,7 +13972,7 @@
 	};
 
 	module.exports = LinkedValueUtils;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 110 */
@@ -14115,7 +14127,7 @@
 	};
 
 	module.exports = ReactDOMOption;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 112 */
@@ -14323,7 +14335,7 @@
 	}
 
 	module.exports = ReactDOMSelect;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 113 */
@@ -14471,9 +14483,15 @@
 	    // This is in postMount because we need access to the DOM node, which is not
 	    // available until after the component has mounted.
 	    var node = ReactDOMComponentTree.getNodeFromInstance(inst);
+	    var textContent = node.textContent;
 
-	    // Warning: node.value may be the empty string at this point (IE11) if placeholder is set.
-	    node.value = node.textContent; // Detach value from defaultValue
+	    // Only set node.value if textContent is equal to the expected
+	    // initial value. In IE10/IE11 there is a bug where the placeholder attribute
+	    // will populate textContent as well.
+	    // https://developer.microsoft.com/microsoft-edge/platform/issues/101525/
+	    if (textContent === inst._wrapperState.initialValue) {
+	      node.value = textContent;
+	    }
 	  }
 	};
 
@@ -14485,7 +14503,7 @@
 	}
 
 	module.exports = ReactDOMTextarea;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 114 */
@@ -14943,7 +14961,7 @@
 	};
 
 	module.exports = ReactMultiChild;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 115 */
@@ -14997,7 +15015,7 @@
 	};
 
 	module.exports = ReactComponentEnvironment;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 116 */
@@ -15214,7 +15232,7 @@
 	};
 
 	module.exports = ReactChildReconciler;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 118 */
@@ -15290,7 +15308,17 @@
 	    instance = ReactEmptyComponent.create(instantiateReactComponent);
 	  } else if (typeof node === 'object') {
 	    var element = node;
-	    !(element && (typeof element.type === 'function' || typeof element.type === 'string')) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s', element.type == null ? element.type : typeof element.type, getDeclarationErrorAddendum(element._owner)) : _prodInvariant('130', element.type == null ? element.type : typeof element.type, getDeclarationErrorAddendum(element._owner)) : void 0;
+	    var type = element.type;
+	    if (typeof type !== 'function' && typeof type !== 'string') {
+	      var info = '';
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+	          info += ' You likely forgot to export your component from the file ' + 'it\'s defined in.';
+	        }
+	      }
+	      info += getDeclarationErrorAddendum(element._owner);
+	       true ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s', type == null ? type : typeof type, info) : _prodInvariant('130', type == null ? type : typeof type, info) : void 0;
+	    }
 
 	    // Special case string values
 	    if (typeof element.type === 'string') {
@@ -15340,7 +15368,7 @@
 	}
 
 	module.exports = instantiateReactComponent;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 119 */
@@ -15583,7 +15611,7 @@
 	      // Since plain JS classes are defined without any special initialization
 	      // logic, we can not catch common errors early. Therefore, we have to
 	      // catch them here, at initialization time, instead.
-	      process.env.NODE_ENV !== 'production' ? warning(!inst.getInitialState || inst.getInitialState.isReactClassApproved, 'getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', this.getName() || 'a component') : void 0;
+	      process.env.NODE_ENV !== 'production' ? warning(!inst.getInitialState || inst.getInitialState.isReactClassApproved || inst.state, 'getInitialState was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Did you mean to define a state property instead?', this.getName() || 'a component') : void 0;
 	      process.env.NODE_ENV !== 'production' ? warning(!inst.getDefaultProps || inst.getDefaultProps.isReactClassApproved, 'getDefaultProps was defined on %s, a plain JavaScript class. ' + 'This is only supported for classes created using React.createClass. ' + 'Use a static property to define defaultProps instead.', this.getName() || 'a component') : void 0;
 	      process.env.NODE_ENV !== 'production' ? warning(!inst.propTypes, 'propTypes was defined as an instance property on %s. Use a static ' + 'property to define propTypes instead.', this.getName() || 'a component') : void 0;
 	      process.env.NODE_ENV !== 'production' ? warning(!inst.contextTypes, 'contextTypes was defined as an instance property on %s. Use a ' + 'static property to define contextTypes instead.', this.getName() || 'a component') : void 0;
@@ -16250,7 +16278,7 @@
 	};
 
 	module.exports = ReactCompositeComponent;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 120 */
@@ -16298,7 +16326,7 @@
 	};
 
 	module.exports = ReactNodeTypes;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 121 */
@@ -16393,7 +16421,7 @@
 	}
 
 	module.exports = checkReactTypeSpec;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 122 */
@@ -16426,7 +16454,7 @@
 	}
 
 	module.exports = ReactPropTypeLocationNames;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 123 */
@@ -16608,14 +16636,11 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(/*! ./reactProdInvariant */ 35),
-	    _assign = __webpack_require__(/*! object-assign */ 4);
+	var _prodInvariant = __webpack_require__(/*! ./reactProdInvariant */ 35);
 
 	var invariant = __webpack_require__(/*! fbjs/lib/invariant */ 8);
 
 	var genericComponentClass = null;
-	// This registry keeps track of wrapper classes around host tags.
-	var tagToComponentClass = {};
 	var textComponentClass = null;
 
 	var ReactHostComponentInjection = {
@@ -16628,11 +16653,6 @@
 	  // rendered as props.
 	  injectTextComponentClass: function (componentClass) {
 	    textComponentClass = componentClass;
-	  },
-	  // This accepts a keyed object with classes as values. Each key represents a
-	  // tag. That particular tag will use this class instead of the generic one.
-	  injectComponentClasses: function (componentClasses) {
-	    _assign(tagToComponentClass, componentClasses);
 	  }
 	};
 
@@ -16671,7 +16691,7 @@
 	};
 
 	module.exports = ReactHostComponent;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 127 */
@@ -16949,7 +16969,7 @@
 	}
 
 	module.exports = traverseAllChildren;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 130 */
@@ -17108,7 +17128,7 @@
 	}
 
 	module.exports = flattenChildren;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 133 */
@@ -17206,7 +17226,7 @@
 	PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 	module.exports = ReactServerRenderingTransaction;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 134 */
@@ -17353,7 +17373,7 @@
 	}();
 
 	module.exports = ReactServerUpdateQueue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 135 */
@@ -17587,7 +17607,7 @@
 	};
 
 	module.exports = ReactUpdateQueue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 136 */
@@ -17977,7 +17997,7 @@
 	}
 
 	module.exports = validateDOMNesting;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 137 */
@@ -18188,7 +18208,7 @@
 	  traverseTwoPhase: traverseTwoPhase,
 	  traverseEnterLeave: traverseEnterLeave
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 139 */
@@ -18360,7 +18380,7 @@
 	});
 
 	module.exports = ReactDOMTextComponent;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 140 */
@@ -18689,7 +18709,7 @@
 	};
 
 	module.exports = EventListener;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 143 */
@@ -18962,7 +18982,7 @@
 	PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 	module.exports = ReactReconcileTransaction;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 146 */
@@ -20287,7 +20307,7 @@
 	};
 
 	module.exports = SimpleEventPlugin;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 156 */
@@ -21426,7 +21446,7 @@
 	};
 
 	module.exports = ReactMount;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 167 */
@@ -21467,7 +21487,7 @@
 	}
 
 	module.exports = ReactDOMContainerInfo;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 168 */
@@ -21622,7 +21642,7 @@
 
 	'use strict';
 
-	module.exports = '15.4.1';
+	module.exports = '15.4.2';
 
 /***/ },
 /* 172 */
@@ -21690,7 +21710,7 @@
 	}
 
 	module.exports = findDOMNode;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 173 */
@@ -21870,7 +21890,7 @@
 	};
 
 	module.exports = ReactDOMUnknownPropertyHook;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 176 */
@@ -21921,7 +21941,7 @@
 	};
 
 	module.exports = ReactDOMNullInputValuePropHook;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 177 */
@@ -22022,7 +22042,7 @@
 	};
 
 	module.exports = ReactDOMInvalidARIAHook;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 178 */
@@ -22134,7 +22154,7 @@
 	Provider.childContextTypes = {
 	  store: _storeShape2["default"].isRequired
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../process/browser.js */ 3)))
 
 /***/ },
 /* 180 */
@@ -22590,7 +22610,7 @@
 	    return (0, _hoistNonReactStatics2["default"])(Connect, WrappedComponent);
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../../process/browser.js */ 3)))
 
 /***/ },
 /* 183 */
@@ -22699,7 +22719,7 @@
 	exports.bindActionCreators = _bindActionCreators2['default'];
 	exports.applyMiddleware = _applyMiddleware2['default'];
 	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 186 */
@@ -23070,8 +23090,7 @@
 	  if (value == null) {
 	    return value === undefined ? undefinedTag : nullTag;
 	  }
-	  value = Object(value);
-	  return (symToStringTag && symToStringTag in value)
+	  return (symToStringTag && symToStringTag in Object(value))
 	    ? getRawTag(value)
 	    : objectToString(value);
 	}
@@ -23536,7 +23555,7 @@
 	    return hasChanged ? nextState : state;
 	  };
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../../process/browser.js */ 3)))
 
 /***/ },
 /* 202 */
@@ -23860,7 +23879,7 @@
 
 	module.exports = invariant;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../process/browser.js */ 3)))
 
 /***/ },
 /* 208 */
@@ -24803,15 +24822,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _nav_bar = __webpack_require__(/*! ./nav_bar/nav_bar */ 219);
+	var _reactScroll = __webpack_require__(/*! react-scroll */ 219);
+
+	var _nav_bar = __webpack_require__(/*! ./nav_bar/nav_bar */ 231);
 
 	var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
-	var _home_screen = __webpack_require__(/*! ./home_screen */ 223);
+	var _home_screen = __webpack_require__(/*! ./home_screen */ 235);
 
 	var _home_screen2 = _interopRequireDefault(_home_screen);
 
-	var _scroll_container = __webpack_require__(/*! ./scroll_container */ 224);
+	var _scroll_container = __webpack_require__(/*! ./scroll_container */ 236);
 
 	var _scroll_container2 = _interopRequireDefault(_scroll_container);
 
@@ -24873,7 +24894,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_home_screen2.default, null),
+	        _react2.default.createElement(
+	          _reactScroll.Element,
+	          { name: 'home', className: 'element' },
+	          _react2.default.createElement(_home_screen2.default, null)
+	        ),
 	        _react2.default.createElement(_scroll_container2.default, null),
 	        _react2.default.createElement(_nav_bar2.default, { sections: this.state.sections, activeSection: this.state.activeSection })
 	      );
@@ -24887,6 +24912,850 @@
 
 /***/ },
 /* 219 */
+/*!*************************************!*\
+  !*** ./~/react-scroll/lib/index.js ***!
+  \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports.Link = __webpack_require__(/*! ./components/Link.js */ 220);
+	exports.Button = __webpack_require__(/*! ./components/Button.js */ 229);
+	exports.Element = __webpack_require__(/*! ./components/Element.js */ 230);
+	exports.Helpers = __webpack_require__(/*! ./mixins/Helpers.js */ 221);
+	exports.scroller = __webpack_require__(/*! ./mixins/scroller.js */ 228);
+	exports.Events = __webpack_require__(/*! ./mixins/scroll-events.js */ 226);
+	exports.scrollSpy = __webpack_require__(/*! ./mixins/scroll-spy.js */ 227);
+	exports.animateScroll = __webpack_require__(/*! ./mixins/animate-scroll.js */ 222);
+
+
+/***/ },
+/* 220 */
+/*!***********************************************!*\
+  !*** ./~/react-scroll/lib/components/Link.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(/*! react */ 1);
+	var Helpers = __webpack_require__(/*! ../mixins/Helpers */ 221);
+
+	var Link = React.createClass({
+	  render: function () {
+	    return React.DOM.a(this.props, this.props.children);
+	  }
+	});
+
+	module.exports = Helpers.Scroll(Link);
+
+
+/***/ },
+/* 221 */
+/*!**********************************************!*\
+  !*** ./~/react-scroll/lib/mixins/Helpers.js ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 32);
+
+	var animateScroll = __webpack_require__(/*! ./animate-scroll */ 222);
+	var scrollSpy = __webpack_require__(/*! ./scroll-spy */ 227);
+	var defaultScroller = __webpack_require__(/*! ./scroller */ 228);
+	var assign = __webpack_require__(/*! object-assign */ 4);
+
+
+	var protoTypes = {
+	  to: React.PropTypes.string.isRequired,
+	  containerId: React.PropTypes.string,
+	  activeClass:React.PropTypes.string,
+	  spy: React.PropTypes.bool,
+	  smooth: React.PropTypes.bool,
+	  offset: React.PropTypes.number,
+	  delay: React.PropTypes.number,
+	  isDynamic: React.PropTypes.bool,
+	  onClick: React.PropTypes.func,
+	  duration: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.func]),
+	  absolute: React.PropTypes.bool,
+	  onSetActive: React.PropTypes.func,
+	  ignoreCancelEvents: React.PropTypes.bool
+	};
+
+	var Helpers = {
+
+	  Scroll: function (Component, customScroller) {
+
+	    var scroller = customScroller || defaultScroller;
+
+	    return React.createClass({
+
+	      propTypes: protoTypes,
+
+	      getDefaultProps: function() {
+	        return {offset: 0};
+	      },
+
+	      scrollTo : function(to, props) {
+	          scroller.scrollTo(to, props);
+	      },
+
+	      handleClick: function(event) {
+
+	        /*
+	         * give the posibility to override onClick
+	         */
+
+	        if(this.props.onClick) {
+	          this.props.onClick(event);
+	        }
+
+	        /*
+	         * dont bubble the navigation
+	         */
+
+	        if (event.stopPropagation) event.stopPropagation();
+	        if (event.preventDefault) event.preventDefault();
+
+	        /*
+	         * do the magic!
+	         */
+	        this.scrollTo(this.props.to, this.props);
+
+	      },
+
+	      spyHandler: function(y) {
+	        var element = scroller.get(this.props.to);
+	        if (!element) return;
+	        var cords = element.getBoundingClientRect();
+	        var topBound = cords.top + y;
+	        var bottomBound = topBound + cords.height;
+	        var offsetY = y - this.props.offset;
+	        var to = this.props.to;
+	        var isInside = (offsetY >= topBound && offsetY <= bottomBound);
+	        var isOutside = (offsetY < topBound || offsetY > bottomBound);
+	        var activeLink = scroller.getActiveLink();
+
+	        if (isOutside && activeLink === to) {
+	          scroller.setActiveLink(void 0);
+	          this.setState({ active : false });
+
+	        } else if (isInside && activeLink != to) {
+	          scroller.setActiveLink(to);
+	          this.setState({ active : true });
+
+	          if(this.props.onSetActive) {
+	            this.props.onSetActive(to);
+	          }
+
+	          scrollSpy.updateStates();
+	        }
+	      },
+
+	      componentDidMount: function() {
+
+
+
+	        var containerId = this.props.containerId;
+
+	        var scrollSpyContainer = containerId ? document.getElementById(containerId) : document;
+
+	        if(!scrollSpy.isMounted(scrollSpyContainer)) {
+	          scrollSpy.mount(scrollSpyContainer);
+	        }
+
+
+	        if(this.props.spy) {
+	          var to = this.props.to;
+	          var element = null;
+	          var elemTopBound = 0;
+	          var elemBottomBound = 0;
+
+	          this._stateHandler = function() {
+	            if(scroller.getActiveLink() != to) {
+	                this.setState({ active : false });
+	            }
+	          }.bind(this)
+
+	          scrollSpy.addStateHandler(this._stateHandler);
+
+	          this._spyHandler = function(y) {
+
+	            var containerTop = 0;
+	            if(scrollSpyContainer.getBoundingClientRect) {
+	              var containerCords = scrollSpyContainer.getBoundingClientRect();
+	              containerTop = containerCords.top;
+	            }
+
+	            if(!element || this.props.isDynamic) {
+	                element = scroller.get(to);
+	                if(!element){ return;}
+
+	                var cords = element.getBoundingClientRect();
+	                elemTopBound = (cords.top - containerTop + y);
+	                elemBottomBound = elemTopBound + cords.height;
+	            }
+
+
+
+	            var offsetY = y - this.props.offset;
+	            var isInside = (offsetY >= Math.floor(elemTopBound) && offsetY <= Math.floor(elemBottomBound));
+	            var isOutside = (offsetY < Math.floor(elemTopBound) || offsetY > Math.floor(elemBottomBound));
+	            var activeLink = scroller.getActiveLink();
+
+	            if (isOutside && activeLink === to) {
+	              scroller.setActiveLink(void 0);
+	              this.setState({ active : false });
+
+	            } else if (isInside && activeLink != to) {
+	              scroller.setActiveLink(to);
+	              this.setState({ active : true });
+
+	              if(this.props.onSetActive) {
+	                this.props.onSetActive(to);
+	              }
+
+	              scrollSpy.updateStates();
+
+	            }
+	          }.bind(this);
+
+	          scrollSpy.addSpyHandler(this._spyHandler, scrollSpyContainer);
+	        }
+	      },
+	      componentWillUnmount: function() {
+	        scrollSpy.unmount(this._stateHandler, this._spyHandler);
+	      },
+	      render: function() {
+
+	        var className = "";
+	        if(this.state && this.state.active) {
+	          className = ((this.props.className || "") + " " + (this.props.activeClass || "active")).trim();
+	        } else {
+	          className = this.props.className;
+	        }
+
+	        var props = assign({}, this.props);
+
+	        for(var prop in protoTypes) {
+	          if(props.hasOwnProperty(prop)) {
+	            delete props[prop];
+	          }
+	        }
+
+	        props.className = className;
+	        props.onClick = this.handleClick;
+
+	        return React.createElement(Component, props);
+	      }
+	    });
+	  },
+
+
+	  Element: function(Component) {
+	    return React.createClass({
+	      propTypes: {
+	        name: React.PropTypes.string,
+	        id:   React.PropTypes.string
+	      },
+	      componentDidMount: function() {
+	        this.registerElems(this.props.name);
+	      },
+	      componentWillReceiveProps: function(nextProps) {
+	        if (this.props.name !== nextProps.name) {
+	          this.registerElems(nextProps.name);
+	        }
+	      },
+	      componentWillUnmount: function() {
+	        defaultScroller.unregister(this.props.name);
+	      },
+	      registerElems: function(name) {
+	        var domNode = ReactDOM.findDOMNode(this);
+	        defaultScroller.register(name, domNode);
+	      },
+	      render: function() {
+	        return React.createElement(Component, this.props);
+	      }
+	    });
+	  }
+	};
+
+	module.exports = Helpers;
+
+
+/***/ },
+/* 222 */
+/*!*****************************************************!*\
+  !*** ./~/react-scroll/lib/mixins/animate-scroll.js ***!
+  \*****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var assign = __webpack_require__(/*! object-assign */ 4);
+
+	var smooth = __webpack_require__(/*! ./smooth */ 223);
+
+	var easing = smooth.defaultEasing;
+
+	var cancelEvents = __webpack_require__(/*! ./cancel-events */ 224);
+
+	var events = __webpack_require__(/*! ./scroll-events */ 226);
+
+	/*
+	 * Function helper
+	 */
+	var functionWrapper = function(value) {
+	  return typeof value === 'function' ? value : function() { return value; };
+	};
+
+	/*
+	 * Wraps window properties to allow server side rendering
+	 */
+	var currentWindowProperties = function() {
+	  if (typeof window !== 'undefined') {
+	    return window.requestAnimationFrame || window.webkitRequestAnimationFrame;
+	  }
+	};
+
+	/*
+	 * Helper function to never extend 60fps on the webpage.
+	 */
+	var requestAnimationFrameHelper = (function () {
+	  return  currentWindowProperties() ||
+	          function (callback, element, delay) {
+	              window.setTimeout(callback, delay || (1000/60), new Date().getTime());
+	          };
+	})();
+
+
+	var __currentPositionY  = 0;
+	var __startPositionY    = 0;
+	var __targetPositionY   = 0;
+	var __progress          = 0;
+	var __duration          = 0;
+	var __cancel            = false;
+
+	var __target;
+	var __containerElement;
+	var __to;
+	var __start;
+	var __deltaTop;
+	var __percent;
+	var __delayTimeout;
+
+
+	var currentPositionY = function() {
+	  if (__containerElement) {
+	        return __containerElement.scrollTop;
+		} else {
+	    var supportPageOffset = window.pageXOffset !== undefined;
+	    var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+	    return supportPageOffset ? window.pageYOffset : isCSS1Compat ?
+	           document.documentElement.scrollTop : document.body.scrollTop;
+	   }
+	};
+
+	var scrollContainerHeight = function() {
+	  if(__containerElement) {
+	    return Math.max(
+	      __containerElement.scrollHeight,
+	      __containerElement.offsetHeight,
+	      __containerElement.clientHeight
+	    );
+	  } else {
+	    var body = document.body;
+	    var html = document.documentElement;
+
+	    return Math.max(
+	      body.scrollHeight,
+	      body.offsetHeight,
+	      html.clientHeight,
+	      html.scrollHeight,
+	      html.offsetHeight
+	    );
+	  }
+	};
+
+	var animateTopScroll = function(timestamp) {
+
+	  // Cancel on specific events
+	  if(__cancel) { 
+	    if(events.registered['end']) {
+	      events.registered['end'](__to, __target, __currentPositionY);
+	    }
+	    return 
+	  };
+
+	  __deltaTop = Math.round(__targetPositionY - __startPositionY);
+
+	  if (__start === null) {
+	    __start = timestamp;
+	  }
+
+	  __progress = timestamp - __start;
+
+	  __percent = (__progress >= __duration ? 1 : easing(__progress/__duration));
+
+	  __currentPositionY = __startPositionY + Math.ceil(__deltaTop * __percent);
+
+	  if(__containerElement) {
+	    __containerElement.scrollTop = __currentPositionY;
+	  } else {
+	    window.scrollTo(0, __currentPositionY);
+	  }
+
+	  if(__percent < 1) {
+	    requestAnimationFrameHelper.call(window, animateTopScroll);
+	    return;
+	  }
+
+	  if(events.registered['end']) {
+	    events.registered['end'](__to, __target, __currentPositionY);
+	  }
+
+	};
+
+	var setContainer = function (options) {
+	  if(!options || !options.containerId) {
+	    __containerElement = null;
+	    return;
+	  }
+
+	  __containerElement = document.getElementById(options.containerId);
+	};
+
+	var startAnimateTopScroll = function(y, options, to, target) {
+
+	  window.clearTimeout(__delayTimeout);
+
+
+	  if (!options.ignoreCancelEvents) {
+	    /*
+	     * Sets the cancel trigger
+	     */
+
+	    cancelEvents.register(function() {
+	      __cancel = true;
+	    });
+	  }
+
+	  setContainer(options);
+
+
+	  __start           = null;
+	  __cancel          = false;
+	  __startPositionY  = currentPositionY();
+	  __targetPositionY = options.absolute ? y : y + __startPositionY;
+	  __deltaTop        = Math.round(__targetPositionY - __startPositionY);
+
+	  __duration        = functionWrapper(options.duration)(__deltaTop);
+	  __duration        = isNaN(parseFloat(__duration)) ? 1000 : parseFloat(__duration);
+	  __to              = to;
+	  __target          = target;
+
+	  if(options && options.delay > 0) {
+	    __delayTimeout = window.setTimeout(function animate() {
+	      requestAnimationFrameHelper.call(window, animateTopScroll);
+	    }, options.delay);
+	    return;
+	  }
+
+	  requestAnimationFrameHelper.call(window, animateTopScroll);
+
+	};
+
+	var scrollToTop = function (options) {
+	  startAnimateTopScroll(0, assign(options || {}, { absolute : true }));
+	};
+
+	var scrollTo = function (toY, options) {
+	  startAnimateTopScroll(toY, assign(options || {}, { absolute : true }));
+	};
+
+	var scrollToBottom = function(options) {
+	  setContainer(options);
+	  startAnimateTopScroll(scrollContainerHeight(), assign(options || {}, { absolute : true }));
+	};
+
+	var scrollMore = function(toY, options) {
+	  setContainer(options);
+	  startAnimateTopScroll(currentPositionY() + toY, assign(options || {}, { absolute : true }));
+	};
+
+	module.exports = {
+	  animateTopScroll: startAnimateTopScroll,
+	  scrollToTop: scrollToTop,
+	  scrollToBottom: scrollToBottom,
+	  scrollTo: scrollTo,
+	  scrollMore: scrollMore,
+	};
+
+
+/***/ },
+/* 223 */
+/*!*********************************************!*\
+  !*** ./~/react-scroll/lib/mixins/smooth.js ***!
+  \*********************************************/
+/***/ function(module, exports) {
+
+	module.exports = {
+	 /*
+	  * https://github.com/oblador/angular-scroll (duScrollDefaultEasing)
+	  */
+	  defaultEasing : function (x) {
+	    'use strict';
+
+	    if(x < 0.5) {
+	      return Math.pow(x*2, 2)/2;
+	    }
+	    return 1-Math.pow((1-x)*2, 2)/2;
+	  }
+	}
+
+/***/ },
+/* 224 */
+/*!****************************************************!*\
+  !*** ./~/react-scroll/lib/mixins/cancel-events.js ***!
+  \****************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var addPassiveEventListener = __webpack_require__(/*! ./passive-event-listeners */ 225);
+
+	var events = ['mousedown', 'mousewheel', 'touchmove', 'keydown']
+
+	module.exports = {
+		register : function(cancelEvent) {
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			for(var i = 0; i < events.length; i = i + 1) {
+				addPassiveEventListener(document, events[i], cancelEvent);
+			}
+		}
+	};
+
+
+/***/ },
+/* 225 */
+/*!**************************************************************!*\
+  !*** ./~/react-scroll/lib/mixins/passive-event-listeners.js ***!
+  \**************************************************************/
+/***/ function(module, exports) {
+
+	/*
+	 * Tell the browser that the event listener won't prevent a scroll.
+	 * Allowing the browser to continue scrolling without having to
+	 * to wait for the listener to return.
+	 */
+	var addPassiveEventListener = function(target, eventName, listener) {
+	    var supportsPassiveOption = (function(){
+	        var supportsPassiveOption = false;
+	        try {
+	            var opts = Object.defineProperty({}, 'passive', {
+	                get: function() {
+	                    supportsPassiveOption = true;
+	                }
+	            });
+	            window.addEventListener('test', null, opts);
+	        } catch (e) {}
+	        return supportsPassiveOption;
+	    })();
+
+	    target.addEventListener(eventName, listener, supportsPassiveOption ? {passive: true} : false);
+	};
+
+	module.exports = addPassiveEventListener;
+
+
+/***/ },
+/* 226 */
+/*!****************************************************!*\
+  !*** ./~/react-scroll/lib/mixins/scroll-events.js ***!
+  \****************************************************/
+/***/ function(module, exports) {
+
+	
+	var Events = {
+		registered : {},
+		scrollEvent : {
+			register: function(evtName, callback) {
+				Events.registered[evtName] = callback;
+			},
+			remove: function(evtName) {
+				Events.registered[evtName] = null;
+			}
+		}
+	};
+
+	module.exports = Events;
+
+/***/ },
+/* 227 */
+/*!*************************************************!*\
+  !*** ./~/react-scroll/lib/mixins/scroll-spy.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var addPassiveEventListener = __webpack_require__(/*! ./passive-event-listeners */ 225);
+
+	var eventThrottler = function(eventHandler) {
+	  var eventHandlerTimeout;
+	  return function(event) {
+	    // ignore events as long as an eventHandler execution is in the queue
+	    if ( !eventHandlerTimeout ) {
+	      eventHandlerTimeout = setTimeout(function() {
+	        eventHandlerTimeout = null;
+	        eventHandler(event);
+	        // The eventHandler will execute at a rate of 15fps
+	      }, 66);
+	    }
+	  };
+	};
+
+	var scrollSpy = {
+
+	  spyCallbacks: [],
+	  spySetState: [],
+	  scrollSpyContainers: [],
+
+	  mount: function (scrollSpyContainer) {
+	    var t = this;
+	    if (scrollSpyContainer) {
+	      var eventHandler = eventThrottler(function(event) {
+	        t.scrollHandler(scrollSpyContainer);
+	      });
+	      this.scrollSpyContainers.push(scrollSpyContainer);
+	      addPassiveEventListener(scrollSpyContainer, 'scroll', eventHandler);
+	    }
+	  },
+
+	  isMounted: function (scrollSpyContainer) {
+	    return this.scrollSpyContainers.indexOf(scrollSpyContainer) !== -1;
+	  },
+
+	  currentPositionY: function (scrollSpyContainer) {
+	    if(scrollSpyContainer === document) {
+	      var supportPageOffset = window.pageXOffset !== undefined;
+	      var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+	      return supportPageOffset ? window.pageYOffset : isCSS1Compat ?
+	      document.documentElement.scrollTop : document.body.scrollTop;
+	    } else {
+	      return scrollSpyContainer.scrollTop;
+	    }
+	  },
+
+	  scrollHandler: function (scrollSpyContainer) {
+	    var callbacks = this.scrollSpyContainers[this.scrollSpyContainers.indexOf(scrollSpyContainer)].spyCallbacks;
+	    if (callbacks) {
+	      for(var i = 0; i < callbacks.length; i++) {
+	        var position =this.currentPositionY(scrollSpyContainer);
+	        callbacks[i](this.currentPositionY(scrollSpyContainer));
+	      }
+	    }
+	  },
+
+	  addStateHandler: function(handler){
+	    this.spySetState.push(handler);
+	  },
+
+	  addSpyHandler: function(handler, scrollSpyContainer) {
+	    var container = this.scrollSpyContainers[this.scrollSpyContainers.indexOf(scrollSpyContainer)];
+	    if(!container.spyCallbacks) {
+	      container.spyCallbacks = [];
+	    }
+	    container.spyCallbacks.push(handler);
+	  },
+
+	  updateStates: function(){
+	    var length = this.spySetState.length;
+
+	    for(var i = 0; i < length; i++) {
+	      this.spySetState[i]();
+	    }
+	  },
+
+	  unmount: function (stateHandler, spyHandler) {
+	    for (var i = 0; i < this.scrollSpyContainers.length; i++) {
+	      var callbacks = this.scrollSpyContainers[i].spyCallbacks;
+	      if(callbacks && callbacks.length) {
+	        callbacks.splice(callbacks.indexOf(spyHandler), 1);
+	      }
+	    }
+
+	    if(this.spySetState && this.spySetState.length) {
+	      this.spySetState.splice(this.spySetState.indexOf(stateHandler), 1);
+	    }
+
+	    document.removeEventListener('scroll', this.scrollHandler);
+	  },
+
+	  update: function() {
+	    for (var i = 0; i < this.scrollSpyContainers.length; i++) {
+	      this.scrollHandler(this.scrollSpyContainers[i]);
+	    }
+	  }
+	}
+
+	module.exports = scrollSpy;
+
+
+/***/ },
+/* 228 */
+/*!***********************************************!*\
+  !*** ./~/react-scroll/lib/mixins/scroller.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var assign = __webpack_require__(/*! object-assign */ 4);
+
+	var animateScroll = __webpack_require__(/*! ./animate-scroll */ 222);
+	var events = __webpack_require__(/*! ./scroll-events */ 226);
+
+	var __mapped = {};
+	var __activeLink;
+
+	module.exports = {
+
+	  unmount: function() {
+	    __mapped = {};
+	  },
+
+	  register: function(name, element){
+	    __mapped[name] = element;
+	  },
+
+	  unregister: function(name) {
+	    delete __mapped[name];
+	  },
+
+	  get: function(name) {
+	    return __mapped[name] || document.getElementById(name);
+	  },
+
+	  setActiveLink: function(link) {
+	    __activeLink = link;
+	  },
+
+	  getActiveLink: function() {
+	    return __activeLink;
+	  },
+
+	  scrollTo: function(to, props) {
+
+	     /*
+	     * get the mapped DOM element
+	     */
+
+	      var target = this.get(to);
+
+	      if(!target) {
+	        console.warn("target Element not found");
+	        return;
+	      }
+
+	      props = assign({}, props, { absolute : false });
+
+
+	      if(events.registered['begin']) {
+	        events.registered['begin'](to, target);
+	      }
+
+	      var containerId = props.containerId;
+	      var containerElement = containerId ? document.getElementById(containerId) : null;
+
+	      var scrollOffset;
+
+	      if(containerId && containerElement) {
+	        props.absolute = true;
+	        if(containerElement !== target.offsetParent) {
+	          if(!containerElement.contains(target)) {
+	            throw new Error('Container with ID ' + containerId + ' is not a parent of target ' + to);
+	          } else {
+	            throw new Error('Container with ID ' + containerId + ' is not a positioned element');
+	          }
+	        }
+
+	        scrollOffset = target.offsetTop;
+	      } else {
+	        var coordinates = target.getBoundingClientRect();
+	        scrollOffset = coordinates.top;
+	      }
+
+	      scrollOffset += (props.offset || 0);
+
+
+	      /*
+	       * if animate is not provided just scroll into the view
+	       */
+	      if(!props.smooth) {
+	        if(containerId && containerElement) {
+	          containerElement.scrollTop = scrollOffset;
+	        } else {
+	          // window.scrollTo accepts only absolute values so body rectangle needs to be subtracted
+	          var bodyRect = document.body.getBoundingClientRect();
+	          window.scrollTo(0, scrollOffset - bodyRect.top);
+	        }
+
+	        if(events.registered['end']) {
+	          events.registered['end'](to, target);
+	        }
+
+	        return;
+	      }
+
+	      /*
+	       * Animate scrolling
+	       */
+
+	      animateScroll.animateTopScroll(scrollOffset, props, to, target);
+	  }
+	};
+
+
+/***/ },
+/* 229 */
+/*!*************************************************!*\
+  !*** ./~/react-scroll/lib/components/Button.js ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(/*! react */ 1);
+	var Helpers = __webpack_require__(/*! ../mixins/Helpers */ 221);
+
+	var Button = React.createClass({
+	  render: function () {
+	    return React.DOM.input(this.props, this.props.children);
+	  }
+	});
+
+	module.exports = Helpers.Scroll(Button);
+
+
+/***/ },
+/* 230 */
+/*!**************************************************!*\
+  !*** ./~/react-scroll/lib/components/Element.js ***!
+  \**************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(/*! react */ 1);
+	var Helpers = __webpack_require__(/*! ../mixins/Helpers */ 221);
+
+	var Element = React.createClass({
+	  render: function () {
+	    return React.DOM.div(this.props, this.props.children);
+	  }
+	});
+
+	module.exports = Helpers.Element(Element);
+
+
+/***/ },
+/* 231 */
 /*!*******************************************!*\
   !*** ./app/components/nav_bar/nav_bar.js ***!
   \*******************************************/
@@ -24904,7 +25773,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _nav_bar_item = __webpack_require__(/*! ./nav_bar_item */ 220);
+	var _nav_bar_item = __webpack_require__(/*! ./nav_bar_item */ 232);
 
 	var _nav_bar_item2 = _interopRequireDefault(_nav_bar_item);
 
@@ -24948,7 +25817,7 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      var classNames = __webpack_require__(/*! classnames */ 222);
+	      var classNames = __webpack_require__(/*! classnames */ 234);
 	      var listClasses = classNames({
 	        'nav-bar': true,
 	        'open': this.state.open
@@ -24974,7 +25843,7 @@
 	exports.default = NavBar;
 
 /***/ },
-/* 220 */
+/* 232 */
 /*!************************************************!*\
   !*** ./app/components/nav_bar/nav_bar_item.js ***!
   \************************************************/
@@ -24992,7 +25861,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _nav_bar_item_icon = __webpack_require__(/*! ./nav_bar_item_icon */ 221);
+	var _reactScroll = __webpack_require__(/*! react-scroll */ 219);
+
+	var _nav_bar_item_icon = __webpack_require__(/*! ./nav_bar_item_icon */ 233);
 
 	var _nav_bar_item_icon2 = _interopRequireDefault(_nav_bar_item_icon);
 
@@ -25029,8 +25900,14 @@
 	        el = _react2.default.createElement(_nav_bar_item_icon2.default, { section: section, onClick: this.handleClick.bind(this), activeSection: this.props.activeSection });
 	      } else {
 	        el = _react2.default.createElement(
-	          'a',
-	          { href: "#" + section.name, className: 'tiny-33 nav-item border-top' },
+	          _reactScroll.Link,
+	          {
+	            className: 'tiny-33 nav-item border-top',
+	            to: section.name,
+	            spy: true,
+	            smooth: true,
+	            duration: 500
+	          },
 	          section.name
 	        );
 	      }
@@ -25045,7 +25922,7 @@
 	exports.default = NavBarItem;
 
 /***/ },
-/* 221 */
+/* 233 */
 /*!*****************************************************!*\
   !*** ./app/components/nav_bar/nav_bar_item_icon.js ***!
   \*****************************************************/
@@ -25062,6 +25939,8 @@
 	var _react = __webpack_require__(/*! react */ 1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactScroll = __webpack_require__(/*! react-scroll */ 219);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25091,12 +25970,11 @@
 	    key: 'render',
 	    value: function render() {
 	      var section = this.props.section;
-	      var classNames = __webpack_require__(/*! classnames */ 222);
+	      var classNames = __webpack_require__(/*! classnames */ 234);
 	      var el = null;
 	      var listClasses = classNames({
 	        'tiny-20': true,
-	        'nav-item': true,
-	        'active': this.props.activeSection === section.name
+	        'nav-item': true
 	      });
 
 	      if (section.name === 'call') {
@@ -25120,8 +25998,15 @@
 	        );
 	      } else {
 	        el = _react2.default.createElement(
-	          'a',
-	          { href: "#" + section.name, className: listClasses, onClick: this.handleClick.bind(this) },
+	          _reactScroll.Link,
+	          {
+	            className: listClasses,
+	            onClick: this.handleClick.bind(this),
+	            to: section.name,
+	            spy: true,
+	            smooth: true,
+	            duration: 500
+	          },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'svg-container' },
@@ -25143,7 +26028,7 @@
 	exports.default = NavBarItemIcon;
 
 /***/ },
-/* 222 */
+/* 234 */
 /*!*******************************!*\
   !*** ./~/classnames/index.js ***!
   \*******************************/
@@ -25200,7 +26085,7 @@
 
 
 /***/ },
-/* 223 */
+/* 235 */
 /*!***************************************!*\
   !*** ./app/components/home_screen.js ***!
   \***************************************/
@@ -25276,7 +26161,7 @@
 	exports.default = HomeScreen;
 
 /***/ },
-/* 224 */
+/* 236 */
 /*!********************************************!*\
   !*** ./app/components/scroll_container.js ***!
   \********************************************/
@@ -25294,19 +26179,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _menu_list = __webpack_require__(/*! ../containers/menu_list */ 225);
+	var _reactScroll = __webpack_require__(/*! react-scroll */ 219);
+
+	var _menu_list = __webpack_require__(/*! ../containers/menu_list */ 237);
 
 	var _menu_list2 = _interopRequireDefault(_menu_list);
 
-	var _photos = __webpack_require__(/*! ../containers/photos */ 228);
+	var _photos = __webpack_require__(/*! ../containers/photos */ 240);
 
 	var _photos2 = _interopRequireDefault(_photos);
 
-	var _about = __webpack_require__(/*! ../containers/about */ 229);
+	var _about = __webpack_require__(/*! ../containers/about */ 241);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _contact = __webpack_require__(/*! ../containers/contact */ 230);
+	var _contact = __webpack_require__(/*! ../containers/contact */ 242);
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -25328,8 +26215,7 @@
 	    var _this = _possibleConstructorReturn(this, (ScrollContainer.__proto__ || Object.getPrototypeOf(ScrollContainer)).call(this, props));
 
 	    _this.state = {
-	      containerWidth: 90,
-	      lastLocation: null
+	      containerWidth: 90
 	    };
 	    return _this;
 	  }
@@ -25337,43 +26223,54 @@
 	  _createClass(ScrollContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      window.addEventListener('scroll', this.handleScroll.bind(this));
-	      // this.setState({offsetTop: document.querySelector('.scroll-container').offsetTop});
+	      var scroll = new Event('scroll');
+	      window.addEventListener('scroll', this.handleScroll.bind(this), false);
+	      window.dispatchEvent(scroll);
+
+	      window.addEventListener('resize', this.handleResize.bind(this), false);
+
+	      _reactScroll.Events.scrollEvent.register('begin', function () {
+	        console.log("begin", arguments);
+	      });
+
+	      _reactScroll.Events.scrollEvent.register('end', function () {
+	        console.log("end", arguments);
+	      });
+
+	      _reactScroll.scrollSpy.update();
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      window.removeEventListener('scroll', this.handleScroll.bind(this));
+	      _reactScroll.Events.scrollEvent.remove('begin');
+	      _reactScroll.Events.scrollEvent.remove('end');
 	    }
 	  }, {
 	    key: 'handleScroll',
 	    value: function handleScroll(event) {
 	      var innerHeight = window.innerHeight - 100;
-	      var currentLocation = event.srcElement.body.scrollTop;
+	      var currentLocation = window.pageYOffset || document.documentElement.scrollTop;
 
 	      if (currentLocation === 0) {
 	        this.setState({
-	          containerWidth: 90,
-	          lastLocation: 1
+	          containerWidth: 90
 	        });
-	      } else if (this.state.lastLocation < currentLocation) {
-	        if (currentLocation >= innerHeight) {
-	          this.setState({
-	            containerWidth: 100,
-	            lastLocation: 99
-	          });
-	        } else {
-	          this.setState({
-	            containerWidth: this.state.containerWidth + 0.2,
-	            lastLocation: currentLocation
-	          });
-	        }
-	      } else if (this.state.lastLocation > currentLocation) {
+	      } else if (currentLocation >= innerHeight) {
 	        this.setState({
-	          containerWidth: this.state.containerWidth - 0.2,
-	          lastLocation: currentLocation
+	          containerWidth: 100
+	        });
+	      } else {
+	        var percent = 90 + currentLocation / innerHeight * 10;
+	        this.setState({
+	          containerWidth: percent
 	        });
 	      }
+	    }
+	  }, {
+	    key: 'handleResize',
+	    value: function handleResize(event) {
+	      this.handleScroll();
 	    }
 	  }, {
 	    key: 'render',
@@ -25381,10 +26278,26 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'scroll-container', style: { 'width': this.state.containerWidth + '%' } },
-	        _react2.default.createElement(_menu_list2.default, null),
-	        _react2.default.createElement(_photos2.default, null),
-	        _react2.default.createElement(_about2.default, null),
-	        _react2.default.createElement(_contact2.default, null)
+	        _react2.default.createElement(
+	          _reactScroll.Element,
+	          { name: 'menu', className: 'element' },
+	          _react2.default.createElement(_menu_list2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          _reactScroll.Element,
+	          { name: 'photos', className: 'element' },
+	          _react2.default.createElement(_photos2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          _reactScroll.Element,
+	          { name: 'about', className: 'element' },
+	          _react2.default.createElement(_about2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          _reactScroll.Element,
+	          { name: 'contact', className: 'element' },
+	          _react2.default.createElement(_contact2.default, null)
+	        )
 	      );
 	    }
 	  }]);
@@ -25397,7 +26310,7 @@
 	exports.default = ScrollContainer;
 
 /***/ },
-/* 225 */
+/* 237 */
 /*!*************************************!*\
   !*** ./app/containers/menu_list.js ***!
   \*************************************/
@@ -25417,13 +26330,13 @@
 
 	var _reactRedux = __webpack_require__(/*! react-redux */ 178);
 
-	var _actions = __webpack_require__(/*! ../actions */ 226);
+	var _actions = __webpack_require__(/*! ../actions */ 238);
 
 	var actions = _interopRequireWildcard(_actions);
 
 	var _redux = __webpack_require__(/*! redux */ 185);
 
-	var _head_line = __webpack_require__(/*! ../components/head_line */ 227);
+	var _head_line = __webpack_require__(/*! ../components/head_line */ 239);
 
 	var _head_line2 = _interopRequireDefault(_head_line);
 
@@ -25535,7 +26448,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, actions)(MenuList);
 
 /***/ },
-/* 226 */
+/* 238 */
 /*!******************************!*\
   !*** ./app/actions/index.js ***!
   \******************************/
@@ -25555,7 +26468,7 @@
 	}
 
 /***/ },
-/* 227 */
+/* 239 */
 /*!*************************************!*\
   !*** ./app/components/head_line.js ***!
   \*************************************/
@@ -25588,7 +26501,7 @@
 	exports.default = HeadLine;
 
 /***/ },
-/* 228 */
+/* 240 */
 /*!**********************************!*\
   !*** ./app/containers/photos.js ***!
   \**********************************/
@@ -25606,7 +26519,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _head_line = __webpack_require__(/*! ../components/head_line */ 227);
+	var _head_line = __webpack_require__(/*! ../components/head_line */ 239);
 
 	var _head_line2 = _interopRequireDefault(_head_line);
 
@@ -25655,7 +26568,7 @@
 	exports.default = Photos;
 
 /***/ },
-/* 229 */
+/* 241 */
 /*!*********************************!*\
   !*** ./app/containers/about.js ***!
   \*********************************/
@@ -25673,7 +26586,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _head_line = __webpack_require__(/*! ../components/head_line */ 227);
+	var _head_line = __webpack_require__(/*! ../components/head_line */ 239);
 
 	var _head_line2 = _interopRequireDefault(_head_line);
 
@@ -25727,7 +26640,7 @@
 	exports.default = About;
 
 /***/ },
-/* 230 */
+/* 242 */
 /*!***********************************!*\
   !*** ./app/containers/contact.js ***!
   \***********************************/
@@ -25745,9 +26658,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactGoogleMaps = __webpack_require__(/*! react-google-maps */ 231);
+	var _reactGoogleMaps = __webpack_require__(/*! react-google-maps */ 243);
 
-	var _head_line = __webpack_require__(/*! ../components/head_line */ 227);
+	var _head_line = __webpack_require__(/*! ../components/head_line */ 239);
 
 	var _head_line2 = _interopRequireDefault(_head_line);
 
@@ -25870,7 +26783,7 @@
 	exports.default = Contact;
 
 /***/ },
-/* 231 */
+/* 243 */
 /*!******************************************!*\
   !*** ./~/react-google-maps/lib/index.js ***!
   \******************************************/
@@ -25884,60 +26797,60 @@
 
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj["default"] : obj; }
 
-	var _GoogleMapLoader = __webpack_require__(/*! ./GoogleMapLoader */ 232);
+	var _GoogleMapLoader = __webpack_require__(/*! ./GoogleMapLoader */ 244);
 
 	exports.GoogleMapLoader = _interopRequire(_GoogleMapLoader);
 
-	var _GoogleMap = __webpack_require__(/*! ./GoogleMap */ 242);
+	var _GoogleMap = __webpack_require__(/*! ./GoogleMap */ 254);
 
 	exports.GoogleMap = _interopRequire(_GoogleMap);
 
-	var _Circle = __webpack_require__(/*! ./Circle */ 243);
+	var _Circle = __webpack_require__(/*! ./Circle */ 255);
 
 	exports.Circle = _interopRequire(_Circle);
 
-	var _DirectionsRenderer = __webpack_require__(/*! ./DirectionsRenderer */ 247);
+	var _DirectionsRenderer = __webpack_require__(/*! ./DirectionsRenderer */ 259);
 
 	exports.DirectionsRenderer = _interopRequire(_DirectionsRenderer);
 
-	var _DrawingManager = __webpack_require__(/*! ./DrawingManager */ 250);
+	var _DrawingManager = __webpack_require__(/*! ./DrawingManager */ 262);
 
 	exports.DrawingManager = _interopRequire(_DrawingManager);
 
-	var _InfoWindow = __webpack_require__(/*! ./InfoWindow */ 253);
+	var _InfoWindow = __webpack_require__(/*! ./InfoWindow */ 265);
 
 	exports.InfoWindow = _interopRequire(_InfoWindow);
 
-	var _KmlLayer = __webpack_require__(/*! ./KmlLayer */ 257);
+	var _KmlLayer = __webpack_require__(/*! ./KmlLayer */ 269);
 
 	exports.KmlLayer = _interopRequire(_KmlLayer);
 
-	var _Marker = __webpack_require__(/*! ./Marker */ 260);
+	var _Marker = __webpack_require__(/*! ./Marker */ 272);
 
 	exports.Marker = _interopRequire(_Marker);
 
-	var _OverlayView = __webpack_require__(/*! ./OverlayView */ 263);
+	var _OverlayView = __webpack_require__(/*! ./OverlayView */ 275);
 
 	exports.OverlayView = _interopRequire(_OverlayView);
 
-	var _Polygon = __webpack_require__(/*! ./Polygon */ 265);
+	var _Polygon = __webpack_require__(/*! ./Polygon */ 277);
 
 	exports.Polygon = _interopRequire(_Polygon);
 
-	var _Polyline = __webpack_require__(/*! ./Polyline */ 268);
+	var _Polyline = __webpack_require__(/*! ./Polyline */ 280);
 
 	exports.Polyline = _interopRequire(_Polyline);
 
-	var _Rectangle = __webpack_require__(/*! ./Rectangle */ 271);
+	var _Rectangle = __webpack_require__(/*! ./Rectangle */ 283);
 
 	exports.Rectangle = _interopRequire(_Rectangle);
 
-	var _SearchBox = __webpack_require__(/*! ./SearchBox */ 274);
+	var _SearchBox = __webpack_require__(/*! ./SearchBox */ 286);
 
 	exports.SearchBox = _interopRequire(_SearchBox);
 
 /***/ },
-/* 232 */
+/* 244 */
 /*!****************************************************!*\
   !*** ./~/react-google-maps/lib/GoogleMapLoader.js ***!
   \****************************************************/
@@ -25965,7 +26878,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _creatorsGoogleMapHolder = __webpack_require__(/*! ./creators/GoogleMapHolder */ 233);
+	var _creatorsGoogleMapHolder = __webpack_require__(/*! ./creators/GoogleMapHolder */ 245);
 
 	var _creatorsGoogleMapHolder2 = _interopRequireDefault(_creatorsGoogleMapHolder);
 
@@ -26052,7 +26965,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 233 */
+/* 245 */
 /*!*************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/GoogleMapHolder.js ***!
   \*************************************************************/
@@ -26078,27 +26991,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _warning = __webpack_require__(/*! warning */ 234);
+	var _warning = __webpack_require__(/*! warning */ 246);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _eventListsGoogleMapEventList = __webpack_require__(/*! ../eventLists/GoogleMapEventList */ 235);
+	var _eventListsGoogleMapEventList = __webpack_require__(/*! ../eventLists/GoogleMapEventList */ 247);
 
 	var _eventListsGoogleMapEventList2 = _interopRequireDefault(_eventListsGoogleMapEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
@@ -26215,7 +27128,7 @@
 	exports["default"] = GoogleMapHolder;
 
 /***/ },
-/* 234 */
+/* 246 */
 /*!******************************!*\
   !*** ./~/warning/browser.js ***!
   \******************************/
@@ -26282,10 +27195,10 @@
 
 	module.exports = warning;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./../process/browser.js */ 3)))
 
 /***/ },
-/* 235 */
+/* 247 */
 /*!******************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/GoogleMapEventList.js ***!
   \******************************************************************/
@@ -26302,7 +27215,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 236 */
+/* 248 */
 /*!**************************************************************!*\
   !*** ./~/react-google-maps/lib/utils/eventHandlerCreator.js ***!
   \**************************************************************/
@@ -26357,7 +27270,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 237 */
+/* 249 */
 /*!**************************************************************!*\
   !*** ./~/react-google-maps/lib/utils/defaultPropsCreator.js ***!
   \**************************************************************/
@@ -26372,7 +27285,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var _addDefaultPrefix = __webpack_require__(/*! ./addDefaultPrefix */ 238);
+	var _addDefaultPrefix = __webpack_require__(/*! ./addDefaultPrefix */ 250);
 
 	var _addDefaultPrefix2 = _interopRequireDefault(_addDefaultPrefix);
 
@@ -26386,7 +27299,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 238 */
+/* 250 */
 /*!***********************************************************!*\
   !*** ./~/react-google-maps/lib/utils/addDefaultPrefix.js ***!
   \***********************************************************/
@@ -26406,7 +27319,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 239 */
+/* 251 */
 /*!*********************************************************!*\
   !*** ./~/react-google-maps/lib/utils/composeOptions.js ***!
   \*********************************************************/
@@ -26424,7 +27337,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var _controlledOrDefault = __webpack_require__(/*! ./controlledOrDefault */ 240);
+	var _controlledOrDefault = __webpack_require__(/*! ./controlledOrDefault */ 252);
 
 	var _controlledOrDefault2 = _interopRequireDefault(_controlledOrDefault);
 
@@ -26448,7 +27361,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 240 */
+/* 252 */
 /*!**************************************************************!*\
   !*** ./~/react-google-maps/lib/utils/controlledOrDefault.js ***!
   \**************************************************************/
@@ -26463,7 +27376,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var _addDefaultPrefix = __webpack_require__(/*! ./addDefaultPrefix */ 238);
+	var _addDefaultPrefix = __webpack_require__(/*! ./addDefaultPrefix */ 250);
 
 	var _addDefaultPrefix2 = _interopRequireDefault(_addDefaultPrefix);
 
@@ -26480,7 +27393,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 241 */
+/* 253 */
 /*!**********************************************************************!*\
   !*** ./~/react-google-maps/lib/utils/componentLifecycleDecorator.js ***!
   \**********************************************************************/
@@ -26573,7 +27486,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 242 */
+/* 254 */
 /*!**********************************************!*\
   !*** ./~/react-google-maps/lib/GoogleMap.js ***!
   \**********************************************/
@@ -26603,15 +27516,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _warning = __webpack_require__(/*! warning */ 234);
+	var _warning = __webpack_require__(/*! warning */ 246);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _creatorsGoogleMapHolder = __webpack_require__(/*! ./creators/GoogleMapHolder */ 233);
+	var _creatorsGoogleMapHolder = __webpack_require__(/*! ./creators/GoogleMapHolder */ 245);
 
 	var _creatorsGoogleMapHolder2 = _interopRequireDefault(_creatorsGoogleMapHolder);
 
-	var _GoogleMapLoader = __webpack_require__(/*! ./GoogleMapLoader */ 232);
+	var _GoogleMapLoader = __webpack_require__(/*! ./GoogleMapLoader */ 244);
 
 	var _GoogleMapLoader2 = _interopRequireDefault(_GoogleMapLoader);
 
@@ -26778,7 +27691,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 243 */
+/* 255 */
 /*!*******************************************!*\
   !*** ./~/react-google-maps/lib/Circle.js ***!
   \*******************************************/
@@ -26806,11 +27719,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsCircleCreator = __webpack_require__(/*! ./creators/CircleCreator */ 245);
+	var _creatorsCircleCreator = __webpack_require__(/*! ./creators/CircleCreator */ 257);
 
 	var _creatorsCircleCreator2 = _interopRequireDefault(_creatorsCircleCreator);
 
@@ -26913,7 +27826,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 244 */
+/* 256 */
 /*!********************************!*\
   !*** ./~/can-use-dom/index.js ***!
   \********************************/
@@ -26928,7 +27841,7 @@
 	module.exports = canUseDOM;
 
 /***/ },
-/* 245 */
+/* 257 */
 /*!***********************************************************!*\
   !*** ./~/react-google-maps/lib/creators/CircleCreator.js ***!
   \***********************************************************/
@@ -26954,27 +27867,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsCircleEventList = __webpack_require__(/*! ../eventLists/CircleEventList */ 246);
+	var _eventListsCircleEventList = __webpack_require__(/*! ../eventLists/CircleEventList */ 258);
 
 	var _eventListsCircleEventList2 = _interopRequireDefault(_eventListsCircleEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -27079,7 +27992,7 @@
 	exports["default"] = CircleCreator;
 
 /***/ },
-/* 246 */
+/* 258 */
 /*!***************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/CircleEventList.js ***!
   \***************************************************************/
@@ -27096,7 +28009,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 247 */
+/* 259 */
 /*!*******************************************************!*\
   !*** ./~/react-google-maps/lib/DirectionsRenderer.js ***!
   \*******************************************************/
@@ -27124,11 +28037,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsDirectionsRendererCreator = __webpack_require__(/*! ./creators/DirectionsRendererCreator */ 248);
+	var _creatorsDirectionsRendererCreator = __webpack_require__(/*! ./creators/DirectionsRendererCreator */ 260);
 
 	var _creatorsDirectionsRendererCreator2 = _interopRequireDefault(_creatorsDirectionsRendererCreator);
 
@@ -27216,7 +28129,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 248 */
+/* 260 */
 /*!***********************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/DirectionsRendererCreator.js ***!
   \***********************************************************************/
@@ -27242,27 +28155,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsDirectionsRendererEventList = __webpack_require__(/*! ../eventLists/DirectionsRendererEventList */ 249);
+	var _eventListsDirectionsRendererEventList = __webpack_require__(/*! ../eventLists/DirectionsRendererEventList */ 261);
 
 	var _eventListsDirectionsRendererEventList2 = _interopRequireDefault(_eventListsDirectionsRendererEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -27370,7 +28283,7 @@
 	exports["default"] = DirectionsRendererCreator;
 
 /***/ },
-/* 249 */
+/* 261 */
 /*!***************************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/DirectionsRendererEventList.js ***!
   \***************************************************************************/
@@ -27387,7 +28300,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 250 */
+/* 262 */
 /*!***************************************************!*\
   !*** ./~/react-google-maps/lib/DrawingManager.js ***!
   \***************************************************/
@@ -27415,11 +28328,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsDrawingManagerCreator = __webpack_require__(/*! ./creators/DrawingManagerCreator */ 251);
+	var _creatorsDrawingManagerCreator = __webpack_require__(/*! ./creators/DrawingManagerCreator */ 263);
 
 	var _creatorsDrawingManagerCreator2 = _interopRequireDefault(_creatorsDrawingManagerCreator);
 
@@ -27497,7 +28410,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 251 */
+/* 263 */
 /*!*******************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/DrawingManagerCreator.js ***!
   \*******************************************************************/
@@ -27523,27 +28436,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsDrawingManagerEventList = __webpack_require__(/*! ../eventLists/DrawingManagerEventList */ 252);
+	var _eventListsDrawingManagerEventList = __webpack_require__(/*! ../eventLists/DrawingManagerEventList */ 264);
 
 	var _eventListsDrawingManagerEventList2 = _interopRequireDefault(_eventListsDrawingManagerEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -27632,7 +28545,7 @@
 	exports["default"] = DrawingManagerCreator;
 
 /***/ },
-/* 252 */
+/* 264 */
 /*!***********************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/DrawingManagerEventList.js ***!
   \***********************************************************************/
@@ -27649,7 +28562,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 253 */
+/* 265 */
 /*!***********************************************!*\
   !*** ./~/react-google-maps/lib/InfoWindow.js ***!
   \***********************************************/
@@ -27677,11 +28590,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsInfoWindowCreator = __webpack_require__(/*! ./creators/InfoWindowCreator */ 254);
+	var _creatorsInfoWindowCreator = __webpack_require__(/*! ./creators/InfoWindowCreator */ 266);
 
 	var _creatorsInfoWindowCreator2 = _interopRequireDefault(_creatorsInfoWindowCreator);
 
@@ -27762,7 +28675,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 254 */
+/* 266 */
 /*!***************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/InfoWindowCreator.js ***!
   \***************************************************************/
@@ -27788,31 +28701,31 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsInfoWindowEventList = __webpack_require__(/*! ../eventLists/InfoWindowEventList */ 255);
+	var _eventListsInfoWindowEventList = __webpack_require__(/*! ../eventLists/InfoWindowEventList */ 267);
 
 	var _eventListsInfoWindowEventList2 = _interopRequireDefault(_eventListsInfoWindowEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsSetContentForOptionalReactElement = __webpack_require__(/*! ../utils/setContentForOptionalReactElement */ 256);
+	var _utilsSetContentForOptionalReactElement = __webpack_require__(/*! ../utils/setContentForOptionalReactElement */ 268);
 
 	var _utilsSetContentForOptionalReactElement2 = _interopRequireDefault(_utilsSetContentForOptionalReactElement);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -27922,7 +28835,7 @@
 	exports["default"] = InfoWindowCreator;
 
 /***/ },
-/* 255 */
+/* 267 */
 /*!*******************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/InfoWindowEventList.js ***!
   \*******************************************************************/
@@ -27939,7 +28852,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 256 */
+/* 268 */
 /*!****************************************************************************!*\
   !*** ./~/react-google-maps/lib/utils/setContentForOptionalReactElement.js ***!
   \****************************************************************************/
@@ -27985,7 +28898,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 257 */
+/* 269 */
 /*!*********************************************!*\
   !*** ./~/react-google-maps/lib/KmlLayer.js ***!
   \*********************************************/
@@ -28013,11 +28926,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsKmlLayerCreator = __webpack_require__(/*! ./creators/KmlLayerCreator */ 258);
+	var _creatorsKmlLayerCreator = __webpack_require__(/*! ./creators/KmlLayerCreator */ 270);
 
 	var _creatorsKmlLayerCreator2 = _interopRequireDefault(_creatorsKmlLayerCreator);
 
@@ -28110,7 +29023,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 258 */
+/* 270 */
 /*!*************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/KmlLayerCreator.js ***!
   \*************************************************************/
@@ -28136,27 +29049,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsKmlLayerEventList = __webpack_require__(/*! ../eventLists/KmlLayerEventList */ 259);
+	var _eventListsKmlLayerEventList = __webpack_require__(/*! ../eventLists/KmlLayerEventList */ 271);
 
 	var _eventListsKmlLayerEventList2 = _interopRequireDefault(_eventListsKmlLayerEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -28273,7 +29186,7 @@
 	exports["default"] = KmlLayerCreator;
 
 /***/ },
-/* 259 */
+/* 271 */
 /*!*****************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/KmlLayerEventList.js ***!
   \*****************************************************************/
@@ -28290,7 +29203,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 260 */
+/* 272 */
 /*!*******************************************!*\
   !*** ./~/react-google-maps/lib/Marker.js ***!
   \*******************************************/
@@ -28318,11 +29231,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsMarkerCreator = __webpack_require__(/*! ./creators/MarkerCreator */ 261);
+	var _creatorsMarkerCreator = __webpack_require__(/*! ./creators/MarkerCreator */ 273);
 
 	var _creatorsMarkerCreator2 = _interopRequireDefault(_creatorsMarkerCreator);
 
@@ -28476,7 +29389,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 261 */
+/* 273 */
 /*!***********************************************************!*\
   !*** ./~/react-google-maps/lib/creators/MarkerCreator.js ***!
   \***********************************************************/
@@ -28502,27 +29415,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsMarkerEventList = __webpack_require__(/*! ../eventLists/MarkerEventList */ 262);
+	var _eventListsMarkerEventList = __webpack_require__(/*! ../eventLists/MarkerEventList */ 274);
 
 	var _eventListsMarkerEventList2 = _interopRequireDefault(_eventListsMarkerEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -28697,7 +29610,7 @@
 	exports["default"] = MarkerCreator;
 
 /***/ },
-/* 262 */
+/* 274 */
 /*!***************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/MarkerEventList.js ***!
   \***************************************************************/
@@ -28714,7 +29627,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 263 */
+/* 275 */
 /*!************************************************!*\
   !*** ./~/react-google-maps/lib/OverlayView.js ***!
   \************************************************/
@@ -28742,11 +29655,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsOverlayViewCreator = __webpack_require__(/*! ./creators/OverlayViewCreator */ 264);
+	var _creatorsOverlayViewCreator = __webpack_require__(/*! ./creators/OverlayViewCreator */ 276);
 
 	var _creatorsOverlayViewCreator2 = _interopRequireDefault(_creatorsOverlayViewCreator);
 
@@ -28853,7 +29766,7 @@
 	// Controlled [props] - used in componentDidMount/componentDidUpdate
 
 /***/ },
-/* 264 */
+/* 276 */
 /*!****************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/OverlayViewCreator.js ***!
   \****************************************************************/
@@ -28885,15 +29798,15 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -29108,7 +30021,7 @@
 	exports["default"] = OverlayViewCreator;
 
 /***/ },
-/* 265 */
+/* 277 */
 /*!********************************************!*\
   !*** ./~/react-google-maps/lib/Polygon.js ***!
   \********************************************/
@@ -29136,11 +30049,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsPolygonCreator = __webpack_require__(/*! ./creators/PolygonCreator */ 266);
+	var _creatorsPolygonCreator = __webpack_require__(/*! ./creators/PolygonCreator */ 278);
 
 	var _creatorsPolygonCreator2 = _interopRequireDefault(_creatorsPolygonCreator);
 
@@ -29233,7 +30146,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 266 */
+/* 278 */
 /*!************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/PolygonCreator.js ***!
   \************************************************************/
@@ -29259,27 +30172,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsPolygonEventList = __webpack_require__(/*! ../eventLists/PolygonEventList */ 267);
+	var _eventListsPolygonEventList = __webpack_require__(/*! ../eventLists/PolygonEventList */ 279);
 
 	var _eventListsPolygonEventList2 = _interopRequireDefault(_eventListsPolygonEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -29384,7 +30297,7 @@
 	exports["default"] = PolygonCreator;
 
 /***/ },
-/* 267 */
+/* 279 */
 /*!****************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/PolygonEventList.js ***!
   \****************************************************************/
@@ -29401,7 +30314,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 268 */
+/* 280 */
 /*!*********************************************!*\
   !*** ./~/react-google-maps/lib/Polyline.js ***!
   \*********************************************/
@@ -29429,11 +30342,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsPolylineCreator = __webpack_require__(/*! ./creators/PolylineCreator */ 269);
+	var _creatorsPolylineCreator = __webpack_require__(/*! ./creators/PolylineCreator */ 281);
 
 	var _creatorsPolylineCreator2 = _interopRequireDefault(_creatorsPolylineCreator);
 
@@ -29521,7 +30434,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 269 */
+/* 281 */
 /*!*************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/PolylineCreator.js ***!
   \*************************************************************/
@@ -29547,27 +30460,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsPolylineEventList = __webpack_require__(/*! ../eventLists/PolylineEventList */ 270);
+	var _eventListsPolylineEventList = __webpack_require__(/*! ../eventLists/PolylineEventList */ 282);
 
 	var _eventListsPolylineEventList2 = _interopRequireDefault(_eventListsPolylineEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -29668,7 +30581,7 @@
 	exports["default"] = PolylineCreator;
 
 /***/ },
-/* 270 */
+/* 282 */
 /*!*****************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/PolylineEventList.js ***!
   \*****************************************************************/
@@ -29685,7 +30598,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 271 */
+/* 283 */
 /*!**********************************************!*\
   !*** ./~/react-google-maps/lib/Rectangle.js ***!
   \**********************************************/
@@ -29713,11 +30626,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsRectangleCreator = __webpack_require__(/*! ./creators/RectangleCreator */ 272);
+	var _creatorsRectangleCreator = __webpack_require__(/*! ./creators/RectangleCreator */ 284);
 
 	var _creatorsRectangleCreator2 = _interopRequireDefault(_creatorsRectangleCreator);
 
@@ -29810,7 +30723,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 272 */
+/* 284 */
 /*!**************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/RectangleCreator.js ***!
   \**************************************************************/
@@ -29836,27 +30749,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsRectangleEventList = __webpack_require__(/*! ../eventLists/RectangleEventList */ 273);
+	var _eventListsRectangleEventList = __webpack_require__(/*! ../eventLists/RectangleEventList */ 285);
 
 	var _eventListsRectangleEventList2 = _interopRequireDefault(_eventListsRectangleEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -29957,7 +30870,7 @@
 	exports["default"] = RectangleCreator;
 
 /***/ },
-/* 273 */
+/* 285 */
 /*!******************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/RectangleEventList.js ***!
   \******************************************************************/
@@ -29974,7 +30887,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 274 */
+/* 286 */
 /*!**********************************************!*\
   !*** ./~/react-google-maps/lib/SearchBox.js ***!
   \**********************************************/
@@ -30004,11 +30917,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _canUseDom = __webpack_require__(/*! can-use-dom */ 244);
+	var _canUseDom = __webpack_require__(/*! can-use-dom */ 256);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _creatorsSearchBoxCreator = __webpack_require__(/*! ./creators/SearchBoxCreator */ 275);
+	var _creatorsSearchBoxCreator = __webpack_require__(/*! ./creators/SearchBoxCreator */ 287);
 
 	var _creatorsSearchBoxCreator2 = _interopRequireDefault(_creatorsSearchBoxCreator);
 
@@ -30115,7 +31028,7 @@
 	// Event [onEventName]
 
 /***/ },
-/* 275 */
+/* 287 */
 /*!**************************************************************!*\
   !*** ./~/react-google-maps/lib/creators/SearchBoxCreator.js ***!
   \**************************************************************/
@@ -30141,27 +31054,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _eventListsSearchBoxEventList = __webpack_require__(/*! ../eventLists/SearchBoxEventList */ 276);
+	var _eventListsSearchBoxEventList = __webpack_require__(/*! ../eventLists/SearchBoxEventList */ 288);
 
 	var _eventListsSearchBoxEventList2 = _interopRequireDefault(_eventListsSearchBoxEventList);
 
-	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 236);
+	var _utilsEventHandlerCreator = __webpack_require__(/*! ../utils/eventHandlerCreator */ 248);
 
 	var _utilsEventHandlerCreator2 = _interopRequireDefault(_utilsEventHandlerCreator);
 
-	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 237);
+	var _utilsDefaultPropsCreator = __webpack_require__(/*! ../utils/defaultPropsCreator */ 249);
 
 	var _utilsDefaultPropsCreator2 = _interopRequireDefault(_utilsDefaultPropsCreator);
 
-	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 239);
+	var _utilsComposeOptions = __webpack_require__(/*! ../utils/composeOptions */ 251);
 
 	var _utilsComposeOptions2 = _interopRequireDefault(_utilsComposeOptions);
 
-	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 241);
+	var _utilsComponentLifecycleDecorator = __webpack_require__(/*! ../utils/componentLifecycleDecorator */ 253);
 
 	var _utilsComponentLifecycleDecorator2 = _interopRequireDefault(_utilsComponentLifecycleDecorator);
 
-	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 233);
+	var _GoogleMapHolder = __webpack_require__(/*! ./GoogleMapHolder */ 245);
 
 	var _GoogleMapHolder2 = _interopRequireDefault(_GoogleMapHolder);
 
@@ -30275,7 +31188,7 @@
 	exports["default"] = SearchBoxCreator;
 
 /***/ },
-/* 276 */
+/* 288 */
 /*!******************************************************************!*\
   !*** ./~/react-google-maps/lib/eventLists/SearchBoxEventList.js ***!
   \******************************************************************/
@@ -30292,7 +31205,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 277 */
+/* 289 */
 /*!****************************!*\
   !*** ./app/style/app.scss ***!
   \****************************/
@@ -30303,10 +31216,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/sass-loader?sourceMap!./app.scss */ 278);
+	var content = __webpack_require__(/*! !./../../~/css-loader?sourceMap!./../../~/sass-loader?sourceMap!./app.scss */ 290);
 	if (typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 280)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 292)(content, {});
 	if (content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if (false) {
@@ -30325,24 +31238,24 @@
 	}
 
 /***/ },
-/* 278 */
+/* 290 */
 /*!*******************************************************************************!*\
   !*** ./~/css-loader?sourceMap!./~/sass-loader?sourceMap!./app/style/app.scss ***!
   \*******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 279)();
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 291)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n*, *:before, *:after {\n  box-sizing: border-box; }\n\n::selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\n::-moz-selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\nhtml, body {\n  height: 100%;\n  width: 100%;\n  font-size: 4.5vw;\n  overflow-x: hidden; }\n\nbody {\n  font-family: Ostrich Sans;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-size-adjust: none; }\n\na {\n  color: #02BD9B;\n  text-decoration: none; }\n  a:hover {\n    cursor: pointer;\n    color: #000000; }\n\nh1 {\n  font-size: 20vw; }\n\nh2 {\n  font-size: 15vw; }\n\nh3 {\n  font-size: 10vw; }\n\nh4 {\n  font-size: 9vw; }\n\nh6 {\n  font-size: 6vw; }\n\np, li {\n  letter-spacing: 0.05rem; }\n\n.bold {\n  font-weight: 900; }\n\n.green {\n  color: #02BD9B; }\n\nhr {\n  border-color: #02BD9B;\n  margin-top: 1px; }\n\n[class*='tiny-'] {\n  float: left; }\n\n.tiny-100 {\n  width: 100%; }\n\n.tiny-80 {\n  width: 80%; }\n\n.tiny-33 {\n  width: 33.33%; }\n\n.tiny-25 {\n  width: 25%; }\n\n.tiny-20 {\n  width: 20%; }\n\n.nav-bar {\n  height: 110px;\n  background-color: #ffffff;\n  position: fixed;\n  bottom: -58px;\n  left: 0;\n  right: 0;\n  transition: bottom 300ms ease-in-out;\n  -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n  .nav-bar.open {\n    bottom: 0; }\n  .nav-bar .nav-item {\n    height: 58px;\n    position: relative;\n    text-align: center;\n    color: #000000;\n    padding-top: 20px;\n    font-weight: 900;\n    font-size: 16px;\n    transition: color 300ms ease-in-out; }\n    .nav-bar .nav-item.active {\n      color: #02BD9B;\n      fill: #02BD9B; }\n    .nav-bar .nav-item .svg-container {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      transition: fill 300ms ease-in-out; }\n      .nav-bar .nav-item .svg-container svg {\n        position: absolute;\n        top: 17%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n        width: 30px;\n        height: auto; }\n        .nav-bar .nav-item .svg-container svg.call-icon {\n          top: 50%;\n          width: 40px; }\n        .nav-bar .nav-item .svg-container svg.photos-icon {\n          left: 60%;\n          width: 28px; }\n        .nav-bar .nav-item .svg-container svg.menu-icon {\n          left: 40%; }\n        .nav-bar .nav-item .svg-container svg.nav-menu-icon {\n          width: 25px; }\n    .nav-bar .nav-item .call-me {\n      position: absolute;\n      left: 50%;\n      top: 44%;\n      height: 25vw;\n      width: 25vw;\n      z-index: 1;\n      background-color: #ffffff;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n      .nav-bar .nav-item .call-me img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: auto; }\n  .nav-bar .border-top {\n    border-top: #979797 solid 1px; }\n    .nav-bar .border-top:nth-child(odd) {\n      border-left: #979797 solid 1px;\n      border-right: #979797 solid 1px; }\n\n.home-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  color: #ffffff; }\n  .home-container .home-content {\n    position: absolute;\n    padding: 5%;\n    top: 40%;\n    transform: translateY(-50%);\n    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&0+0,1+50,0+100 */\n    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* FF3.6-15 */\n    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* Chrome10-25,Safari5.1-6 */\n    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 );\n    /* IE6-9 */ }\n    .home-container .home-content .clock-numbers {\n      display: inline-block; }\n    .home-container .home-content .clock-letters {\n      display: inline-block;\n      margin-right: 15px; }\n\n.scroll-container {\n  position: absolute;\n  top: 88vh;\n  left: 50%;\n  height: auto;\n  max-width: 100%;\n  min-width: 90%;\n  padding: 30px 30px 0 30px;\n  background-color: #ffffff;\n  will-change: transform;\n  transform: translateX(-50%);\n  transition: width 100ms; }\n\n.menu-section {\n  overflow: hidden;\n  margin-bottom: 20px; }\n  .menu-section .section-description {\n    margin-bottom: 10px; }\n  .menu-section .menu-item {\n    margin: 12px 0; }\n    .menu-section .menu-item .item-price {\n      position: relative;\n      float: right; }\n      .menu-section .menu-item .item-price:after {\n        position: absolute;\n        content: \"$\";\n        top: 3px;\n        left: -13px;\n        color: #979797;\n        font-size: 2rem; }\n\n.photo-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n  .photo-section--background {\n    position: absolute;\n    top: -10px;\n    left: -10px;\n    right: -10px;\n    bottom: -10px;\n    -webkit-filter: blur(10px);\n    -moz-filter: blur(10px);\n    -o-filter: blur(10px);\n    -ms-filter: blur(10px);\n    filter: blur(10px);\n    opacity: 0.2;\n    z-index: -1; }\n  .photo-section--content {\n    padding: 30px;\n    height: 100%;\n    position: relative; }\n    .photo-section--content .tile {\n      width: 100%;\n      height: 60%;\n      margin: 30% auto; }\n      .photo-section--content .tile img {\n        width: 100%;\n        height: auto;\n        -webkit-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        -moz-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35); }\n\n.about-section {\n  padding-top: 30px;\n  height: 80vh; }\n  .about-section hr {\n    margin-bottom: 30px; }\n  .about-section p {\n    margin: 20px 0;\n    letter-spacing: 0;\n    font-weight: 800; }\n\n.contact-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative; }\n  .contact-section--content {\n    padding: 30px; }\n    .contact-section--content p {\n      margin: 20px auto; }\n  .contact-section--social {\n    height: 30px; }\n    .contact-section--social svg {\n      width: 30px;\n      height: auto;\n      float: left;\n      transition: fill 300ms ease;\n      will-change: fill; }\n      .contact-section--social svg:hover {\n        cursor: pointer;\n        fill: #02BD9B; }\n", "", {"version":3,"sources":["/./app/style/app/style/_reset.scss","/./app/style/app/style/_base.scss","/./app/style/app/style/_gnar-vars.scss","/./app/style/app.scss","/./app/style/app/style/_grid.scss","/./app/style/app/style/_nav-bar.scss","/./app/style/app/style/_home-screen.scss","/./app/style/app/style/_scroll-container.scss","/./app/style/app/style/_menu.scss","/./app/style/app/style/_photos.scss","/./app/style/app/style/_about.scss","/./app/style/app/style/_contact.scss"],"names":[],"mappings":"AAAA;;;EAGE;AAEF;;;;;;;;;;;;;EAaC,UAAU;EACV,WAAW;EACX,UAAU;EACV,gBAAgB;EAChB,cAAc;EACd,yBAAyB,EACzB;;AACD,iDAAiD;AACjD;;EAEC,eAAe,EACf;;AACD;EACC,eAAe,EACf;;AACD;EACC,iBAAiB,EACjB;;AACD;EACC,aAAa,EACb;;AACD;;EAEC,YAAY;EACZ,cAAc,EACd;;AACD;EACC,0BAA0B;EAC1B,kBAAkB,EAClB;;AC/CD;EACE,uBAAuB,EACxB;;AAGD;EACE,oBCHa;EDIb,eCPa,EDQd;;AAED;EACE,oBCRa;EDSb,eCZa,EDad;;AAED;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;EACjB,mBAAmB,EACpB;;AAED;EACE,0BAA0B;EAE1B,yCAAiC;EACjC,oCAAoC;EACpC,+BAA+B,EAChC;;AAED;EACE,eC5Ba;ED6Bb,sBAAsB,EAMvB;EARD;IAKI,gBAAgB;IAChB,eCnCW,EDoCZ;;AAGH;EAAK,gBAAgB,EAAI;;AACzB;EAAK,gBAAgB,EAAI;;AACzB;EAAK,gBAAgB,EAAI;;AACzB;EAAK,eAAe,EAAI;;AACxB;EAAK,eAAe,EAAI;;AACxB;EAAQ,wBAAwB,EAAI;;AAEpC;EACE,iBAAiB,EAClB;;AAED;EACE,eCjDa,EDkDd;;AAED;EACE,sBCrDa;EDsDb,gBAAgB,EACjB;;AE+CD;ECzGmB,YAAY,EAAI;;AAEnC;EAAY,YAAY,EAAG;;AAE3B;EAAW,WAAW,EAAI;;AAE1B;EAAW,cAAc,EAAI;;AAE7B;EAAW,WAAW,EAAI;;AAE1B;EAAW,WAAW,EAAI;;ACV1B;EACE,cAAc;EACd,0BHFa;EGGb,gBAAgB;EAChB,cAAc;EACd,QAAQ;EACR,SAAS;EACT,qCAAqC;EACrC,yDAAyC;EACzC,sDAAsC;EACtC,iDAAiC,EAqFlC;EA/FD;IAaI,UAAU,EACX;EAdH;IAiBI,aAAa;IACb,mBAAmB;IACnB,mBAAmB;IACnB,eHnBW;IGoBX,kBAAkB;IAClB,iBAAiB;IACjB,gBAAgB;IAChB,oCAAoC,EA8DrC;IAtFH;MA2BM,eHxBS;MGyBT,cHzBS,EG0BV;IA7BL;MAgCM,mBAAmB;MACnB,YAAY;MACZ,aAAa;MACb,mCAAmC,EA4BpC;MA/DL;QAsCQ,mBAAmB;QACnB,SAAS;QACT,UAAU;QACV,iCAAoB;QACpB,YAAY;QACZ,aAAa,EAmBd;QA9DP;UA8CU,SAAS;UACT,YACD,EAAC;QAhDV;UAmDU,UAAU;UACV,YAAY,EACb;QArDT;UAwDU,UAAU,EACX;QAzDT;UA4DU,YAAY,EACb;IA7DT;MAkEM,mBAAmB;MACnB,UAAU;MACV,SAAS;MACT,aAAa;MACb,YAAY;MACZ,WAAW;MACX,0BHxES;MGyET,mBAAmB;MACnB,iCAAoB;MACpB,yDAAyC;MACzC,sDAAsC;MACtC,iDAAiC,EAQlC;MArFL;QA+EQ,mBAAmB;QACnB,OAAO;QACP,QAAQ;QACR,YAAY;QACZ,aAAa,EACd;EApFP;IAyFI,8BAA2B,EAK5B;IA9FH;MA2FM,+BAA6B;MAC7B,gCAA8B,EAC/B;;AC7FL;EACE,gBAAgB;EAChB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,UAAU;ELgEV,0CAA0C;EAC1C,+BAA+B;EAC/B,4BAA4B;EAC5B,0BAA0B;EAC1B,uBAAuB;EKlEvB,eJPa,EIyBd;EAzBD;IAUI,mBAAmB;IACnB,YAAY;IACZ,SAAS;IACT,4BAAqB;ILgDvB,0IAA0I;IAC1I,gGAAgC;IAAmE,cAAc;IACjH,mGAAmC;IAAiE,6BAA6B;IACjI,iGAA2B;IAAuE,sDAAsD;IACxJ,wHAAuH;IAAE,WAAW,EKzCnI;IAxBH;MAiBM,sBAAsB,EACvB;IAlBL;MAqBM,sBAAsB;MACtB,mBAAmB,EACpB;;ACvBL;EACE,mBAAmB;EACnB,UAAU;EACV,UAAU;EACV,aAAa;EACb,gBAAgB;EAChB,eAAe;EACf,0BLFkB;EKGlB,0BLRa;EKSb,uBAAuB;EACvB,4BAAqB;EACrB,wBAAwB,EACzB;;ACZD;EACE,iBAAiB;EACjB,oBAAoB,EAsBrB;EAxBD;IAKI,oBAAoB,EACrB;EANH;IASI,eAAe,EAchB;IAvBH;MAYM,mBAAmB;MACnB,aAAa,EASd;MAtBL;QAeQ,mBAAmB;QACnB,aAAa;QACb,SAAS;QACT,YAAY;QACZ,eNjBM;QMkBN,gBAAgB,EACjB;;ACrBP;EACE,mBPIkB;EOHlB,oBPGkB;EOFlB,cAAc;EACd,mBAAmB;EACnB,iBAAiB,EAoClB;EAzCD;IAQI,mBAAmB;IACnB,WAAW;IACX,YAAY;IACZ,aAAa;IACb,cAAc;IACd,2BAAoB;IACpB,wBAAiB;IACjB,sBAAe;IACf,uBAAgB;IAChB,mBAAY;IACZ,aAAa;IACb,YAAY,EACb;EApBH;IAuBI,cPlBgB;IOmBhB,aAAa;IACb,mBAAmB,EAepB;IAxCH;MA4BM,YAAY;MACZ,YAAY;MACZ,iBAAiB,EASlB;MAvCL;QAiCQ,YAAY;QACZ,aAAa;QACb,yDAAyC;QACzC,sDAAsC;QACtC,iDAAiC,EAClC;;ACtCP;EACE,kBRIkB;EQHlB,aAAa,EAWd;EAbD;IAKI,oBAAoB,EACrB;EANH;IASI,eAAe;IACf,kBAAkB;IAClB,iBAAiB,EAClB;;ACZH;EACE,mBTIkB;ESHlB,oBTGkB;ESFlB,cAAc;EACd,mBAAmB,EAyBpB;EA7BD;IAOI,cTFgB,ESMjB;IAXH;MASM,kBAAkB,EACnB;EAVL;IAcI,aAAa,EAcd;IA5BH;MAiBM,YAAY;MACZ,aAAa;MACb,YAAY;MACZ,4BAA4B;MAC5B,kBAAkB,EAMnB;MA3BL;QAwBQ,gBAAgB;QAChB,cTtBO,ESuBR","file":"app.scss","sourcesContent":["/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n","*, *:before, *:after {\n  box-sizing: border-box;\n}\n\n// Highlights\n::selection {\n  background: $green;\n  color: $white;\n}\n\n::-moz-selection {\n  background: $green;\n  color: $white;\n}\n\nhtml, body {\n  height: 100%;\n  width: 100%;\n  font-size: 4.5vw;\n  overflow-x: hidden;\n}\n\nbody {\n  font-family: Ostrich Sans;\n\n  -webkit-tap-highlight-color: rgba(0,0,0,0);\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-size-adjust: none;\n}\n\na {\n  color: $green;\n  text-decoration: none;\n\n  &:hover {\n    cursor: pointer;\n    color: $black;\n  }\n}\n\nh1 { font-size: 20vw; }\nh2 { font-size: 15vw; }\nh3 { font-size: 10vw; }\nh4 { font-size: 9vw; }\nh6 { font-size: 6vw; }\np, li { letter-spacing: 0.05rem; }\n\n.bold {\n  font-weight: 900;\n}\n\n.green {\n  color: $green;\n}\n\nhr {\n  border-color: $green;\n  margin-top: 1px;\n}\n\n@mixin VerticalGradient() {\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&0+0,1+50,0+100 */\n  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%); /* FF3.6-15 */\n  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */\n}\n\n@mixin backgroundImageCover {\n  background: no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n}\n","$white: #ffffff;\n$black: #000000;\n$gray: #979797;\n$green: #02BD9B;\n\n$layoutSpacing: 30px;\n","/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n*, *:before, *:after {\n  box-sizing: border-box; }\n\n::selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\n::-moz-selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\nhtml, body {\n  height: 100%;\n  width: 100%;\n  font-size: 4.5vw;\n  overflow-x: hidden; }\n\nbody {\n  font-family: Ostrich Sans;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-size-adjust: none; }\n\na {\n  color: #02BD9B;\n  text-decoration: none; }\n  a:hover {\n    cursor: pointer;\n    color: #000000; }\n\nh1 {\n  font-size: 20vw; }\n\nh2 {\n  font-size: 15vw; }\n\nh3 {\n  font-size: 10vw; }\n\nh4 {\n  font-size: 9vw; }\n\nh6 {\n  font-size: 6vw; }\n\np, li {\n  letter-spacing: 0.05rem; }\n\n.bold {\n  font-weight: 900; }\n\n.green {\n  color: #02BD9B; }\n\nhr {\n  border-color: #02BD9B;\n  margin-top: 1px; }\n\n[class*='tiny-'] {\n  float: left; }\n\n.tiny-100 {\n  width: 100%; }\n\n.tiny-80 {\n  width: 80%; }\n\n.tiny-33 {\n  width: 33.33%; }\n\n.tiny-25 {\n  width: 25%; }\n\n.tiny-20 {\n  width: 20%; }\n\n.nav-bar {\n  height: 110px;\n  background-color: #ffffff;\n  position: fixed;\n  bottom: -58px;\n  left: 0;\n  right: 0;\n  transition: bottom 300ms ease-in-out;\n  -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n  .nav-bar.open {\n    bottom: 0; }\n  .nav-bar .nav-item {\n    height: 58px;\n    position: relative;\n    text-align: center;\n    color: #000000;\n    padding-top: 20px;\n    font-weight: 900;\n    font-size: 16px;\n    transition: color 300ms ease-in-out; }\n    .nav-bar .nav-item.active {\n      color: #02BD9B;\n      fill: #02BD9B; }\n    .nav-bar .nav-item .svg-container {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      transition: fill 300ms ease-in-out; }\n      .nav-bar .nav-item .svg-container svg {\n        position: absolute;\n        top: 17%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n        width: 30px;\n        height: auto; }\n        .nav-bar .nav-item .svg-container svg.call-icon {\n          top: 50%;\n          width: 40px; }\n        .nav-bar .nav-item .svg-container svg.photos-icon {\n          left: 60%;\n          width: 28px; }\n        .nav-bar .nav-item .svg-container svg.menu-icon {\n          left: 40%; }\n        .nav-bar .nav-item .svg-container svg.nav-menu-icon {\n          width: 25px; }\n    .nav-bar .nav-item .call-me {\n      position: absolute;\n      left: 50%;\n      top: 44%;\n      height: 25vw;\n      width: 25vw;\n      z-index: 1;\n      background-color: #ffffff;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n      .nav-bar .nav-item .call-me img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: auto; }\n  .nav-bar .border-top {\n    border-top: #979797 solid 1px; }\n    .nav-bar .border-top:nth-child(odd) {\n      border-left: #979797 solid 1px;\n      border-right: #979797 solid 1px; }\n\n.home-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  color: #ffffff; }\n  .home-container .home-content {\n    position: absolute;\n    padding: 5%;\n    top: 40%;\n    transform: translateY(-50%);\n    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&0+0,1+50,0+100 */\n    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* FF3.6-15 */\n    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* Chrome10-25,Safari5.1-6 */\n    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 );\n    /* IE6-9 */ }\n    .home-container .home-content .clock-numbers {\n      display: inline-block; }\n    .home-container .home-content .clock-letters {\n      display: inline-block;\n      margin-right: 15px; }\n\n.scroll-container {\n  position: absolute;\n  top: 88vh;\n  left: 50%;\n  height: auto;\n  max-width: 100%;\n  min-width: 90%;\n  padding: 30px 30px 0 30px;\n  background-color: #ffffff;\n  will-change: transform;\n  transform: translateX(-50%);\n  transition: width 100ms; }\n\n.menu-section {\n  overflow: hidden;\n  margin-bottom: 20px; }\n  .menu-section .section-description {\n    margin-bottom: 10px; }\n  .menu-section .menu-item {\n    margin: 12px 0; }\n    .menu-section .menu-item .item-price {\n      position: relative;\n      float: right; }\n      .menu-section .menu-item .item-price:after {\n        position: absolute;\n        content: \"$\";\n        top: 3px;\n        left: -13px;\n        color: #979797;\n        font-size: 2rem; }\n\n.photo-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n  .photo-section--background {\n    position: absolute;\n    top: -10px;\n    left: -10px;\n    right: -10px;\n    bottom: -10px;\n    -webkit-filter: blur(10px);\n    -moz-filter: blur(10px);\n    -o-filter: blur(10px);\n    -ms-filter: blur(10px);\n    filter: blur(10px);\n    opacity: 0.2;\n    z-index: -1; }\n  .photo-section--content {\n    padding: 30px;\n    height: 100%;\n    position: relative; }\n    .photo-section--content .tile {\n      width: 100%;\n      height: 60%;\n      margin: 30% auto; }\n      .photo-section--content .tile img {\n        width: 100%;\n        height: auto;\n        -webkit-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        -moz-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35); }\n\n.about-section {\n  padding-top: 30px;\n  height: 80vh; }\n  .about-section hr {\n    margin-bottom: 30px; }\n  .about-section p {\n    margin: 20px 0;\n    letter-spacing: 0;\n    font-weight: 800; }\n\n.contact-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative; }\n  .contact-section--content {\n    padding: 30px; }\n    .contact-section--content p {\n      margin: 20px auto; }\n  .contact-section--social {\n    height: 30px; }\n    .contact-section--social svg {\n      width: 30px;\n      height: auto;\n      float: left;\n      transition: fill 300ms ease;\n      will-change: fill; }\n      .contact-section--social svg:hover {\n        cursor: pointer;\n        fill: #02BD9B; }\n","[class*='tiny-'] { float: left; }\n\n.tiny-100 { width: 100%;}\n\n.tiny-80 { width: 80%; }\n\n.tiny-33 { width: 33.33%; }\n\n.tiny-25 { width: 25%; }\n\n.tiny-20 { width: 20%; }\n",".nav-bar {\n  height: 110px;\n  background-color: $white;\n  position: fixed;\n  bottom: -58px;\n  left: 0;\n  right: 0;\n  transition: bottom 300ms ease-in-out;\n  -webkit-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n  -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n  box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n\n  &.open {\n    bottom: 0;\n  }\n\n  .nav-item {\n    height: 58px;\n    position: relative;\n    text-align: center;\n    color: $black;\n    padding-top: 20px;\n    font-weight: 900;\n    font-size: 16px;\n    transition: color 300ms ease-in-out;\n\n    &.active {\n      color: $green;\n      fill: $green;\n    }\n\n    .svg-container {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      transition: fill 300ms ease-in-out;\n\n      svg {\n        position: absolute;\n        top: 17%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n        width: 30px;\n        height: auto;\n\n        &.call-icon {\n          top: 50%;\n          width: 40px\n        }\n\n        &.photos-icon {\n          left: 60%;\n          width: 28px;\n        }\n\n        &.menu-icon {\n          left: 40%;\n        }\n\n        &.nav-menu-icon {\n          width: 25px;\n        }\n      }\n    }\n\n    .call-me {\n      position: absolute;\n      left: 50%;\n      top: 44%;\n      height: 25vw;\n      width: 25vw;\n      z-index: 1;\n      background-color: $white;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      -webkit-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n      -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n      box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n      img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: auto;\n      }\n    }\n  }\n\n  .border-top {\n    border-top: $gray solid 1px;\n    &:nth-child(odd) {\n      border-left:  $gray solid 1px;\n      border-right:  $gray solid 1px;\n    }\n  }\n}\n",".home-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  @include backgroundImageCover;\n  color: $white;\n\n  .home-content {\n    position: absolute;\n    padding: 5%;\n    top: 40%;\n    transform: translateY(-50%);\n    @include VerticalGradient();\n\n    .clock-numbers {\n      display: inline-block;\n    }\n\n    .clock-letters {\n      display: inline-block;\n      margin-right: 15px;\n    }\n  }\n}\n",".scroll-container {\n  position: absolute;\n  top: 88vh;\n  left: 50%;\n  height: auto;\n  max-width: 100%;\n  min-width: 90%;\n  padding: $layoutSpacing $layoutSpacing 0 $layoutSpacing;\n  background-color: $white;\n  will-change: transform;\n  transform: translateX(-50%);\n  transition: width 100ms;\n}\n",".menu-section {\n  overflow: hidden;\n  margin-bottom: 20px;\n\n  .section-description {\n    margin-bottom: 10px;\n  }\n\n  .menu-item {\n    margin: 12px 0;\n\n    .item-price {\n      position: relative;\n      float: right;\n      &:after {\n        position: absolute;\n        content: \"$\";\n        top: 3px;\n        left: -13px;\n        color: $gray;\n        font-size: 2rem;\n      }\n    }\n  }\n}\n",".photo-section {\n  margin-left: -$layoutSpacing;\n  margin-right: -$layoutSpacing;\n  height: 100vh;\n  position: relative;\n  overflow: hidden;\n\n  &--background {\n    position: absolute;\n    top: -10px;\n    left: -10px;\n    right: -10px;\n    bottom: -10px;\n    -webkit-filter: blur(10px);\n    -moz-filter: blur(10px);\n    -o-filter: blur(10px);\n    -ms-filter: blur(10px);\n    filter: blur(10px);\n    opacity: 0.2;\n    z-index: -1;\n  }\n\n  &--content {\n    padding: $layoutSpacing;\n    height: 100%;\n    position: relative;\n\n    .tile {\n      width: 100%;\n      height: 60%;\n      margin: 30% auto;\n\n      img {\n        width: 100%;\n        height: auto;\n        -webkit-box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.35);\n        -moz-box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.35);\n        box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.35);\n      }\n    }\n  }\n}\n",".about-section {\n  padding-top: $layoutSpacing;\n  height: 80vh;\n\n  hr {\n    margin-bottom: 30px;\n  }\n\n  p {\n    margin: 20px 0;\n    letter-spacing: 0;\n    font-weight: 800;\n  }\n}\n",".contact-section {\n  margin-left: -$layoutSpacing;\n  margin-right: -$layoutSpacing;\n  height: 100vh;\n  position: relative;\n\n  &--content {\n    padding: $layoutSpacing;\n    p {\n      margin: 20px auto;\n    }\n  }\n\n  &--social {\n    height: 30px;\n\n    svg {\n      width: 30px;\n      height: auto;\n      float: left;\n      transition: fill 300ms ease;\n      will-change: fill;\n\n      &:hover {\n        cursor: pointer;\n        fill: $green;\n      }\n    }\n  }\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n*, *:before, *:after {\n  box-sizing: border-box; }\n\n::selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\n::-moz-selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\nhtml, body {\n  height: 100%;\n  width: 100%;\n  font-size: 4.5vw;\n  overflow-x: hidden; }\n\nbody {\n  font-family: Ostrich Sans;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-size-adjust: none; }\n\na {\n  color: #02BD9B;\n  text-decoration: none; }\n  a:hover {\n    cursor: pointer;\n    color: #000000; }\n\nh1 {\n  font-size: 20vw; }\n\nh2 {\n  font-size: 15vw; }\n\nh3 {\n  font-size: 10vw; }\n\nh4 {\n  font-size: 9vw; }\n\nh6 {\n  font-size: 6vw; }\n\np, li {\n  letter-spacing: 0.05rem; }\n\n.bold {\n  font-weight: 900; }\n\n.green {\n  color: #02BD9B; }\n\nhr {\n  border-color: #02BD9B;\n  margin-top: 1px; }\n\n[class*='tiny-'] {\n  float: left; }\n\n.tiny-100 {\n  width: 100%; }\n\n.tiny-80 {\n  width: 80%; }\n\n.tiny-33 {\n  width: 33.33%; }\n\n.tiny-25 {\n  width: 25%; }\n\n.tiny-20 {\n  width: 20%; }\n\n.nav-bar {\n  height: 110px;\n  background-color: #ffffff;\n  position: fixed;\n  bottom: -58px;\n  left: 0;\n  right: 0;\n  transition: bottom 300ms ease-in-out;\n  -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n  .nav-bar.open {\n    bottom: 0; }\n  .nav-bar .nav-item {\n    height: 58px;\n    position: relative;\n    text-align: center;\n    color: #000000;\n    padding-top: 20px;\n    font-weight: 900;\n    font-size: 16px;\n    transition: color 300ms ease-in-out; }\n    .nav-bar .nav-item.active {\n      color: #02BD9B;\n      fill: #02BD9B; }\n    .nav-bar .nav-item .svg-container {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      transition: fill 300ms ease-in-out; }\n      .nav-bar .nav-item .svg-container svg {\n        position: absolute;\n        top: 17%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n        width: 30px;\n        height: auto; }\n        .nav-bar .nav-item .svg-container svg.call-icon {\n          top: 50%;\n          width: 40px; }\n        .nav-bar .nav-item .svg-container svg.photos-icon {\n          left: 60%;\n          width: 28px; }\n        .nav-bar .nav-item .svg-container svg.menu-icon {\n          left: 40%; }\n        .nav-bar .nav-item .svg-container svg.nav-menu-icon {\n          width: 25px; }\n    .nav-bar .nav-item .call-me {\n      position: absolute;\n      left: 50%;\n      top: 44%;\n      height: 25vw;\n      width: 25vw;\n      z-index: 1;\n      background-color: #ffffff;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n      .nav-bar .nav-item .call-me img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: auto; }\n  .nav-bar .border-top {\n    border-top: #979797 solid 1px; }\n    .nav-bar .border-top:nth-child(odd) {\n      border-left: #979797 solid 1px;\n      border-right: #979797 solid 1px; }\n\n.home-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  color: #ffffff; }\n  .home-container .home-content {\n    position: absolute;\n    padding: 5%;\n    top: 40%;\n    transform: translateY(-50%);\n    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&0+0,1+50,0+100 */\n    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* FF3.6-15 */\n    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* Chrome10-25,Safari5.1-6 */\n    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 );\n    /* IE6-9 */ }\n    .home-container .home-content .clock-numbers {\n      display: inline-block; }\n    .home-container .home-content .clock-letters {\n      display: inline-block;\n      margin-right: 15px; }\n\n.scroll-container {\n  position: absolute;\n  top: 88vh;\n  left: 50%;\n  height: auto;\n  max-width: 100%;\n  min-width: 90%;\n  padding: 30px 30px 0 30px;\n  background-color: #ffffff;\n  transform: translateX(-50%); }\n\n.menu-section {\n  overflow: hidden;\n  margin-bottom: 20px; }\n  .menu-section .section-description {\n    margin-bottom: 10px; }\n  .menu-section .menu-item {\n    margin: 12px 0; }\n    .menu-section .menu-item .item-price {\n      position: relative;\n      float: right; }\n      .menu-section .menu-item .item-price:after {\n        position: absolute;\n        content: \"$\";\n        top: 3px;\n        left: -13px;\n        color: #979797;\n        font-size: 2rem; }\n\n.photo-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n  .photo-section--background {\n    position: absolute;\n    top: -10px;\n    left: -10px;\n    right: -10px;\n    bottom: -10px;\n    -webkit-filter: blur(10px);\n    -moz-filter: blur(10px);\n    -o-filter: blur(10px);\n    -ms-filter: blur(10px);\n    filter: blur(10px);\n    opacity: 0.2;\n    z-index: -1; }\n  .photo-section--content {\n    padding: 30px;\n    height: 100%;\n    position: relative; }\n    .photo-section--content .tile {\n      width: 100%;\n      height: 60%;\n      margin: 30% auto; }\n      .photo-section--content .tile img {\n        width: 100%;\n        height: auto;\n        -webkit-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        -moz-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35); }\n\n.about-section {\n  padding-top: 30px;\n  height: 80vh; }\n  .about-section hr {\n    margin-bottom: 30px; }\n  .about-section p {\n    margin: 20px 0; }\n\n.contact-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative; }\n  .contact-section--content {\n    padding: 30px; }\n    .contact-section--content p {\n      margin: 20px auto; }\n  .contact-section--social {\n    height: 30px; }\n    .contact-section--social svg {\n      width: 30px;\n      height: auto;\n      float: left;\n      transition: fill 300ms ease;\n      will-change: fill; }\n      .contact-section--social svg:hover {\n        cursor: pointer;\n        fill: #02BD9B; }\n", "", {"version":3,"sources":["/./app/style/app/style/_reset.scss","/./app/style/app/style/_base.scss","/./app/style/app/style/_gnar-vars.scss","/./app/style/app.scss","/./app/style/app/style/_grid.scss","/./app/style/app/style/_nav-bar.scss","/./app/style/app/style/_home-screen.scss","/./app/style/app/style/_scroll-container.scss","/./app/style/app/style/_menu.scss","/./app/style/app/style/_photos.scss","/./app/style/app/style/_about.scss","/./app/style/app/style/_contact.scss"],"names":[],"mappings":"AAAA;;;EAGE;AAEF;;;;;;;;;;;;;EAaC,UAAU;EACV,WAAW;EACX,UAAU;EACV,gBAAgB;EAChB,cAAc;EACd,yBAAyB,EACzB;;AACD,iDAAiD;AACjD;;EAEC,eAAe,EACf;;AACD;EACC,eAAe,EACf;;AACD;EACC,iBAAiB,EACjB;;AACD;EACC,aAAa,EACb;;AACD;;EAEC,YAAY;EACZ,cAAc,EACd;;AACD;EACC,0BAA0B;EAC1B,kBAAkB,EAClB;;AC/CD;EACE,uBAAuB,EACxB;;AAGD;EACE,oBCHa;EDIb,eCPa,EDQd;;AAED;EACE,oBCRa;EDSb,eCZa,EDad;;AAED;EACE,aAAa;EACb,YAAY;EACZ,iBAAiB;EACjB,mBAAmB,EACpB;;AAED;EACE,0BAA0B;EAE1B,yCAAiC;EACjC,oCAAoC;EACpC,+BAA+B,EAChC;;AAED;EACE,eC5Ba;ED6Bb,sBAAsB,EAMvB;EARD;IAKI,gBAAgB;IAChB,eCnCW,EDoCZ;;AAGH;EAAK,gBAAgB,EAAI;;AACzB;EAAK,gBAAgB,EAAI;;AACzB;EAAK,gBAAgB,EAAI;;AACzB;EAAK,eAAe,EAAI;;AACxB;EAAK,eAAe,EAAI;;AACxB;EAAQ,wBAAwB,EAAI;;AAEpC;EACE,iBAAiB,EAClB;;AAED;EACE,eCjDa,EDkDd;;AAED;EACE,sBCrDa;EDsDb,gBAAgB,EACjB;;AE+CD;ECzGmB,YAAY,EAAI;;AAEnC;EAAY,YAAY,EAAG;;AAE3B;EAAW,WAAW,EAAI;;AAE1B;EAAW,cAAc,EAAI;;AAE7B;EAAW,WAAW,EAAI;;AAE1B;EAAW,WAAW,EAAI;;ACV1B;EACE,cAAc;EACd,0BHFa;EGGb,gBAAgB;EAChB,cAAc;EACd,QAAQ;EACR,SAAS;EACT,qCAAqC;EACrC,yDAAyC;EACzC,sDAAsC;EACtC,iDAAiC,EAqFlC;EA/FD;IAaI,UAAU,EACX;EAdH;IAiBI,aAAa;IACb,mBAAmB;IACnB,mBAAmB;IACnB,eHnBW;IGoBX,kBAAkB;IAClB,iBAAiB;IACjB,gBAAgB;IAChB,oCAAoC,EA8DrC;IAtFH;MA2BM,eHxBS;MGyBT,cHzBS,EG0BV;IA7BL;MAgCM,mBAAmB;MACnB,YAAY;MACZ,aAAa;MACb,mCAAmC,EA4BpC;MA/DL;QAsCQ,mBAAmB;QACnB,SAAS;QACT,UAAU;QACV,iCAAoB;QACpB,YAAY;QACZ,aAAa,EAmBd;QA9DP;UA8CU,SAAS;UACT,YACD,EAAC;QAhDV;UAmDU,UAAU;UACV,YAAY,EACb;QArDT;UAwDU,UAAU,EACX;QAzDT;UA4DU,YAAY,EACb;IA7DT;MAkEM,mBAAmB;MACnB,UAAU;MACV,SAAS;MACT,aAAa;MACb,YAAY;MACZ,WAAW;MACX,0BHxES;MGyET,mBAAmB;MACnB,iCAAoB;MACpB,yDAAyC;MACzC,sDAAsC;MACtC,iDAAiC,EAQlC;MArFL;QA+EQ,mBAAmB;QACnB,OAAO;QACP,QAAQ;QACR,YAAY;QACZ,aAAa,EACd;EApFP;IAyFI,8BAA2B,EAK5B;IA9FH;MA2FM,+BAA6B;MAC7B,gCAA8B,EAC/B;;AC7FL;EACE,gBAAgB;EAChB,OAAO;EACP,QAAQ;EACR,SAAS;EACT,UAAU;ELgEV,0CAA0C;EAC1C,+BAA+B;EAC/B,4BAA4B;EAC5B,0BAA0B;EAC1B,uBAAuB;EKlEvB,eJPa,EIyBd;EAzBD;IAUI,mBAAmB;IACnB,YAAY;IACZ,SAAS;IACT,4BAAqB;ILgDvB,0IAA0I;IAC1I,gGAAgC;IAAmE,cAAc;IACjH,mGAAmC;IAAiE,6BAA6B;IACjI,iGAA2B;IAAuE,sDAAsD;IACxJ,wHAAuH;IAAE,WAAW,EKzCnI;IAxBH;MAiBM,sBAAsB,EACvB;IAlBL;MAqBM,sBAAsB;MACtB,mBAAmB,EACpB;;ACvBL;EACE,mBAAmB;EACnB,UAAU;EACV,UAAU;EACV,aAAa;EACb,gBAAgB;EAChB,eAAe;EACf,0BLFkB;EKGlB,0BLRa;EKSb,4BAAqB,EACtB;;ACVD;EACE,iBAAiB;EACjB,oBAAoB,EAsBrB;EAxBD;IAKI,oBAAoB,EACrB;EANH;IASI,eAAe,EAchB;IAvBH;MAYM,mBAAmB;MACnB,aAAa,EASd;MAtBL;QAeQ,mBAAmB;QACnB,aAAa;QACb,SAAS;QACT,YAAY;QACZ,eNjBM;QMkBN,gBAAgB,EACjB;;ACrBP;EACE,mBPIkB;EOHlB,oBPGkB;EOFlB,cAAc;EACd,mBAAmB;EACnB,iBAAiB,EAoClB;EAzCD;IAQI,mBAAmB;IACnB,WAAW;IACX,YAAY;IACZ,aAAa;IACb,cAAc;IACd,2BAAoB;IACpB,wBAAiB;IACjB,sBAAe;IACf,uBAAgB;IAChB,mBAAY;IACZ,aAAa;IACb,YAAY,EACb;EApBH;IAuBI,cPlBgB;IOmBhB,aAAa;IACb,mBAAmB,EAepB;IAxCH;MA4BM,YAAY;MACZ,YAAY;MACZ,iBAAiB,EASlB;MAvCL;QAiCQ,YAAY;QACZ,aAAa;QACb,yDAAyC;QACzC,sDAAsC;QACtC,iDAAiC,EAClC;;ACtCP;EACE,kBRIkB;EQHlB,aAAa,EASd;EAXD;IAKI,oBAAoB,EACrB;EANH;IASI,eAAe,EAChB;;ACVH;EACE,mBTIkB;ESHlB,oBTGkB;ESFlB,cAAc;EACd,mBAAmB,EAyBpB;EA7BD;IAOI,cTFgB,ESMjB;IAXH;MASM,kBAAkB,EACnB;EAVL;IAcI,aAAa,EAcd;IA5BH;MAiBM,YAAY;MACZ,aAAa;MACb,YAAY;MACZ,4BAA4B;MAC5B,kBAAkB,EAMnB;MA3BL;QAwBQ,gBAAgB;QAChB,cTtBO,ESuBR","file":"app.scss","sourcesContent":["/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n","*, *:before, *:after {\n  box-sizing: border-box;\n}\n\n// Highlights\n::selection {\n  background: $green;\n  color: $white;\n}\n\n::-moz-selection {\n  background: $green;\n  color: $white;\n}\n\nhtml, body {\n  height: 100%;\n  width: 100%;\n  font-size: 4.5vw;\n  overflow-x: hidden;\n}\n\nbody {\n  font-family: Ostrich Sans;\n\n  -webkit-tap-highlight-color: rgba(0,0,0,0);\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-size-adjust: none;\n}\n\na {\n  color: $green;\n  text-decoration: none;\n\n  &:hover {\n    cursor: pointer;\n    color: $black;\n  }\n}\n\nh1 { font-size: 20vw; }\nh2 { font-size: 15vw; }\nh3 { font-size: 10vw; }\nh4 { font-size: 9vw; }\nh6 { font-size: 6vw; }\np, li { letter-spacing: 0.05rem; }\n\n.bold {\n  font-weight: 900;\n}\n\n.green {\n  color: $green;\n}\n\nhr {\n  border-color: $green;\n  margin-top: 1px;\n}\n\n@mixin VerticalGradient() {\n  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&0+0,1+50,0+100 */\n  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%); /* FF3.6-15 */\n  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */\n}\n\n@mixin backgroundImageCover {\n  background: no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n}\n","$white: #ffffff;\n$black: #000000;\n$gray: #979797;\n$green: #02BD9B;\n\n$layoutSpacing: 30px;\n","/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n*, *:before, *:after {\n  box-sizing: border-box; }\n\n::selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\n::-moz-selection {\n  background: #02BD9B;\n  color: #ffffff; }\n\nhtml, body {\n  height: 100%;\n  width: 100%;\n  font-size: 4.5vw;\n  overflow-x: hidden; }\n\nbody {\n  font-family: Ostrich Sans;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-font-smoothing: antialiased;\n  -webkit-text-size-adjust: none; }\n\na {\n  color: #02BD9B;\n  text-decoration: none; }\n  a:hover {\n    cursor: pointer;\n    color: #000000; }\n\nh1 {\n  font-size: 20vw; }\n\nh2 {\n  font-size: 15vw; }\n\nh3 {\n  font-size: 10vw; }\n\nh4 {\n  font-size: 9vw; }\n\nh6 {\n  font-size: 6vw; }\n\np, li {\n  letter-spacing: 0.05rem; }\n\n.bold {\n  font-weight: 900; }\n\n.green {\n  color: #02BD9B; }\n\nhr {\n  border-color: #02BD9B;\n  margin-top: 1px; }\n\n[class*='tiny-'] {\n  float: left; }\n\n.tiny-100 {\n  width: 100%; }\n\n.tiny-80 {\n  width: 80%; }\n\n.tiny-33 {\n  width: 33.33%; }\n\n.tiny-25 {\n  width: 25%; }\n\n.tiny-20 {\n  width: 20%; }\n\n.nav-bar {\n  height: 110px;\n  background-color: #ffffff;\n  position: fixed;\n  bottom: -58px;\n  left: 0;\n  right: 0;\n  transition: bottom 300ms ease-in-out;\n  -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n  box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n  .nav-bar.open {\n    bottom: 0; }\n  .nav-bar .nav-item {\n    height: 58px;\n    position: relative;\n    text-align: center;\n    color: #000000;\n    padding-top: 20px;\n    font-weight: 900;\n    font-size: 16px;\n    transition: color 300ms ease-in-out; }\n    .nav-bar .nav-item.active {\n      color: #02BD9B;\n      fill: #02BD9B; }\n    .nav-bar .nav-item .svg-container {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      transition: fill 300ms ease-in-out; }\n      .nav-bar .nav-item .svg-container svg {\n        position: absolute;\n        top: 17%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n        width: 30px;\n        height: auto; }\n        .nav-bar .nav-item .svg-container svg.call-icon {\n          top: 50%;\n          width: 40px; }\n        .nav-bar .nav-item .svg-container svg.photos-icon {\n          left: 60%;\n          width: 28px; }\n        .nav-bar .nav-item .svg-container svg.menu-icon {\n          left: 40%; }\n        .nav-bar .nav-item .svg-container svg.nav-menu-icon {\n          width: 25px; }\n    .nav-bar .nav-item .call-me {\n      position: absolute;\n      left: 50%;\n      top: 44%;\n      height: 25vw;\n      width: 25vw;\n      z-index: 1;\n      background-color: #ffffff;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      -webkit-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      -moz-box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17);\n      box-shadow: 0px -3px 7px 0px rgba(0, 0, 0, 0.17); }\n      .nav-bar .nav-item .call-me img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: auto; }\n  .nav-bar .border-top {\n    border-top: #979797 solid 1px; }\n    .nav-bar .border-top:nth-child(odd) {\n      border-left: #979797 solid 1px;\n      border-right: #979797 solid 1px; }\n\n.home-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  color: #ffffff; }\n  .home-container .home-content {\n    position: absolute;\n    padding: 5%;\n    top: 40%;\n    transform: translateY(-50%);\n    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+100&0+0,1+50,0+100 */\n    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* FF3.6-15 */\n    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* Chrome10-25,Safari5.1-6 */\n    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);\n    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 );\n    /* IE6-9 */ }\n    .home-container .home-content .clock-numbers {\n      display: inline-block; }\n    .home-container .home-content .clock-letters {\n      display: inline-block;\n      margin-right: 15px; }\n\n.scroll-container {\n  position: absolute;\n  top: 88vh;\n  left: 50%;\n  height: auto;\n  max-width: 100%;\n  min-width: 90%;\n  padding: 30px 30px 0 30px;\n  background-color: #ffffff;\n  transform: translateX(-50%); }\n\n.menu-section {\n  overflow: hidden;\n  margin-bottom: 20px; }\n  .menu-section .section-description {\n    margin-bottom: 10px; }\n  .menu-section .menu-item {\n    margin: 12px 0; }\n    .menu-section .menu-item .item-price {\n      position: relative;\n      float: right; }\n      .menu-section .menu-item .item-price:after {\n        position: absolute;\n        content: \"$\";\n        top: 3px;\n        left: -13px;\n        color: #979797;\n        font-size: 2rem; }\n\n.photo-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n  .photo-section--background {\n    position: absolute;\n    top: -10px;\n    left: -10px;\n    right: -10px;\n    bottom: -10px;\n    -webkit-filter: blur(10px);\n    -moz-filter: blur(10px);\n    -o-filter: blur(10px);\n    -ms-filter: blur(10px);\n    filter: blur(10px);\n    opacity: 0.2;\n    z-index: -1; }\n  .photo-section--content {\n    padding: 30px;\n    height: 100%;\n    position: relative; }\n    .photo-section--content .tile {\n      width: 100%;\n      height: 60%;\n      margin: 30% auto; }\n      .photo-section--content .tile img {\n        width: 100%;\n        height: auto;\n        -webkit-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        -moz-box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35);\n        box-shadow: 0px 2px 10px 3px rgba(0, 0, 0, 0.35); }\n\n.about-section {\n  padding-top: 30px;\n  height: 80vh; }\n  .about-section hr {\n    margin-bottom: 30px; }\n  .about-section p {\n    margin: 20px 0; }\n\n.contact-section {\n  margin-left: -30px;\n  margin-right: -30px;\n  height: 100vh;\n  position: relative; }\n  .contact-section--content {\n    padding: 30px; }\n    .contact-section--content p {\n      margin: 20px auto; }\n  .contact-section--social {\n    height: 30px; }\n    .contact-section--social svg {\n      width: 30px;\n      height: auto;\n      float: left;\n      transition: fill 300ms ease;\n      will-change: fill; }\n      .contact-section--social svg:hover {\n        cursor: pointer;\n        fill: #02BD9B; }\n","[class*='tiny-'] { float: left; }\n\n.tiny-100 { width: 100%;}\n\n.tiny-80 { width: 80%; }\n\n.tiny-33 { width: 33.33%; }\n\n.tiny-25 { width: 25%; }\n\n.tiny-20 { width: 20%; }\n",".nav-bar {\n  height: 110px;\n  background-color: $white;\n  position: fixed;\n  bottom: -58px;\n  left: 0;\n  right: 0;\n  transition: bottom 300ms ease-in-out;\n  -webkit-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n  -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n  box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n\n  &.open {\n    bottom: 0;\n  }\n\n  .nav-item {\n    height: 58px;\n    position: relative;\n    text-align: center;\n    color: $black;\n    padding-top: 20px;\n    font-weight: 900;\n    font-size: 16px;\n    transition: color 300ms ease-in-out;\n\n    &.active {\n      color: $green;\n      fill: $green;\n    }\n\n    .svg-container {\n      position: relative;\n      width: 100%;\n      height: 100%;\n      transition: fill 300ms ease-in-out;\n\n      svg {\n        position: absolute;\n        top: 17%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n        width: 30px;\n        height: auto;\n\n        &.call-icon {\n          top: 50%;\n          width: 40px\n        }\n\n        &.photos-icon {\n          left: 60%;\n          width: 28px;\n        }\n\n        &.menu-icon {\n          left: 40%;\n        }\n\n        &.nav-menu-icon {\n          width: 25px;\n        }\n      }\n    }\n\n    .call-me {\n      position: absolute;\n      left: 50%;\n      top: 44%;\n      height: 25vw;\n      width: 25vw;\n      z-index: 1;\n      background-color: $white;\n      border-radius: 50%;\n      transform: translate(-50%, -50%);\n      -webkit-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n      -moz-box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n      box-shadow: 0px -3px 7px 0px rgba(0,0,0,0.17);\n      img {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: auto;\n      }\n    }\n  }\n\n  .border-top {\n    border-top: $gray solid 1px;\n    &:nth-child(odd) {\n      border-left:  $gray solid 1px;\n      border-right:  $gray solid 1px;\n    }\n  }\n}\n",".home-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  @include backgroundImageCover;\n  color: $white;\n\n  .home-content {\n    position: absolute;\n    padding: 5%;\n    top: 40%;\n    transform: translateY(-50%);\n    @include VerticalGradient();\n\n    .clock-numbers {\n      display: inline-block;\n    }\n\n    .clock-letters {\n      display: inline-block;\n      margin-right: 15px;\n    }\n  }\n}\n",".scroll-container {\n  position: absolute;\n  top: 88vh;\n  left: 50%;\n  height: auto;\n  max-width: 100%;\n  min-width: 90%;\n  padding: $layoutSpacing $layoutSpacing 0 $layoutSpacing;\n  background-color: $white;\n  transform: translateX(-50%);\n}\n",".menu-section {\n  overflow: hidden;\n  margin-bottom: 20px;\n\n  .section-description {\n    margin-bottom: 10px;\n  }\n\n  .menu-item {\n    margin: 12px 0;\n\n    .item-price {\n      position: relative;\n      float: right;\n      &:after {\n        position: absolute;\n        content: \"$\";\n        top: 3px;\n        left: -13px;\n        color: $gray;\n        font-size: 2rem;\n      }\n    }\n  }\n}\n",".photo-section {\n  margin-left: -$layoutSpacing;\n  margin-right: -$layoutSpacing;\n  height: 100vh;\n  position: relative;\n  overflow: hidden;\n\n  &--background {\n    position: absolute;\n    top: -10px;\n    left: -10px;\n    right: -10px;\n    bottom: -10px;\n    -webkit-filter: blur(10px);\n    -moz-filter: blur(10px);\n    -o-filter: blur(10px);\n    -ms-filter: blur(10px);\n    filter: blur(10px);\n    opacity: 0.2;\n    z-index: -1;\n  }\n\n  &--content {\n    padding: $layoutSpacing;\n    height: 100%;\n    position: relative;\n\n    .tile {\n      width: 100%;\n      height: 60%;\n      margin: 30% auto;\n\n      img {\n        width: 100%;\n        height: auto;\n        -webkit-box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.35);\n        -moz-box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.35);\n        box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.35);\n      }\n    }\n  }\n}\n",".about-section {\n  padding-top: $layoutSpacing;\n  height: 80vh;\n\n  hr {\n    margin-bottom: 30px;\n  }\n\n  p {\n    margin: 20px 0;\n  }\n}\n",".contact-section {\n  margin-left: -$layoutSpacing;\n  margin-right: -$layoutSpacing;\n  height: 100vh;\n  position: relative;\n\n  &--content {\n    padding: $layoutSpacing;\n    p {\n      margin: 20px auto;\n    }\n  }\n\n  &--social {\n    height: 30px;\n\n    svg {\n      width: 30px;\n      height: auto;\n      float: left;\n      transition: fill 300ms ease;\n      will-change: fill;\n\n      &:hover {\n        cursor: pointer;\n        fill: $green;\n      }\n    }\n  }\n}\n"],"sourceRoot":"webpack://"}]);
 
 	// exports
 
 
 /***/ },
-/* 279 */
+/* 291 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -30401,7 +31314,7 @@
 
 
 /***/ },
-/* 280 */
+/* 292 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
