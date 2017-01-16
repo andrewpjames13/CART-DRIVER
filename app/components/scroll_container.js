@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import { Element, Events, scrollSpy } from 'react-scroll';
+
 import MenuList from '../containers/menu_list';
 import Photos from '../containers/photos';
 import About from '../containers/about';
@@ -20,10 +22,22 @@ class ScrollContainer extends Component {
     window.dispatchEvent(scroll);
 
     window.addEventListener('resize', this.handleResize.bind(this), false);
+
+    Events.scrollEvent.register('begin', function() {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register('end', function() {
+      console.log("end", arguments);
+    });
+
+    scrollSpy.update();
   }
 
   componentWillUnmount() {
       window.removeEventListener('scroll', this.handleScroll.bind(this));
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
   }
 
   handleScroll(event) {
@@ -53,10 +67,21 @@ class ScrollContainer extends Component {
   render() {
     return (
       <div className="scroll-container" style={{'width': this.state.containerWidth + '%'}} >
-        <MenuList />
-        <Photos />
-        <About />
-        <Contact />
+        <Element name="menu" className="element">
+          <MenuList />
+        </Element>
+
+        <Element name="photos" className="element">
+          <Photos />
+        </Element>
+
+        <Element name="about" className="element">
+          <About />
+        </Element>
+
+        <Element name="contact" className="element">
+          <Contact />
+        </Element>
       </div>
     );
   }

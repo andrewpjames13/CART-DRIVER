@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import { Link } from 'react-scroll';
 
 class NavBarItemIcon extends Component {
 
@@ -15,7 +16,6 @@ class NavBarItemIcon extends Component {
     let listClasses = classNames({
       'tiny-20': true,
       'nav-item': true,
-      'active': this.props.activeSection === section.name,
     });
 
     if (section.name === 'call' ) {
@@ -33,13 +33,20 @@ class NavBarItemIcon extends Component {
       );
     } else {
       el = (
-        <a href={"#"+section.name} className={listClasses} onClick={this.handleClick.bind(this)} >
+        <Link
+          className={listClasses}
+          onClick={this.handleClick.bind(this)}
+          to={section.name}
+          spy={true}
+          smooth={true}
+          duration={500}
+          >
           <div className="svg-container">
             <svg version="1.1" className={section.name+"-icon"} x="0px" y="0px" viewBox="0 0 24 24">
               <path d={section.svgPath}/>
             </svg>
           </div>
-        </a>
+        </Link>
       );
     }
     return el

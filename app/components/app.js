@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import { Element, Events, scrollSpy } from 'react-scroll';
 import NavBar from './nav_bar/nav_bar';
 import HomeScreen from './home_screen';
 import ScrollContainer from './scroll_container';
@@ -46,7 +47,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <HomeScreen />
+        <Element name="home" className="element">
+          <HomeScreen />
+        </Element>
         <ScrollContainer />
         <NavBar sections={this.state.sections} activeSection={this.state.activeSection} />
       </div>

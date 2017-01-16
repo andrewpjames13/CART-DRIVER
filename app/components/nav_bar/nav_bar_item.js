@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+import { Link } from 'react-scroll';
 import NavBarItemIcon from './nav_bar_item_icon';
 
 class NavBarItem extends Component {
@@ -17,9 +18,15 @@ class NavBarItem extends Component {
       );
     } else {
       el = (
-        <a href={"#"+section.name} className="tiny-33 nav-item border-top">
+        <Link
+          className="tiny-33 nav-item border-top"
+          to={section.name}
+          spy={true}
+          smooth={true}
+          duration={500}
+          >
           {section.name}
-        </a>
+        </Link>
       );
     }
 
