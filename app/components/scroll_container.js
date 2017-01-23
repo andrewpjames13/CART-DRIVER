@@ -4,6 +4,7 @@ import { Element, Events, scrollSpy } from 'react-scroll';
 
 import MenuList from '../containers/menu_list';
 import Photos from '../containers/photos';
+import Press from '../containers/press';
 import About from '../containers/about';
 import Contact from '../containers/contact';
 
@@ -73,6 +74,10 @@ class ScrollContainer extends Component {
 
         <Element name="photos" className="element">
           <Photos />
+        </Element>
+
+        <Element name="press" className="element">
+          <Press />
         </Element>
 
         <Element name="about" className="element">
