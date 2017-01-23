@@ -116,6 +116,72 @@ export function menuItems() {
             "price": "3"
           }
         ]
+      },
+      {
+        "title": "Antipasti",
+        "sectionDescription": "",
+        "menuItems": [
+          {
+            "name": "OYSTER*",
+            "items": [ "daily selection - market price" ],
+            "price": "MP"
+          },
+          {
+            "name": "PIADA",
+            "items": [ "seafood conserva - market price" ],
+            "price": "MP"
+          },
+          {
+            "name": "FOCCACIA",
+            "items": [ "chicken liver mousse, mushroom" ],
+            "price": "7"
+          },
+          {
+            "name": "Shrimp",
+            "items": [ "New Caledonia Shrimp, nduja, shishitos" ],
+            "price": "13"
+          },
+          {
+            "name": "Speck",
+            "items": [ "a Quercia Speck, giardiniera" ],
+            "price": "9"
+          },
+          {
+            "name": "Salad",
+            "items": [ "chopped salad, favas, olive, cherries, yogurt" ],
+            "price": "8"
+          },
+          {
+            "name": "Pudding",
+            "items": [ "chocolate pudding, whipped cream" ],
+            "price": "5"
+          }
+        ]
+      },
+      {
+        "title": "After",
+        "sectionDescription": "",
+        "menuItems": [
+          {
+            "name": "3PM-6PM",
+            "items": [
+              "Glass of Prosecco",
+              "Messed Up Negroni - gin, campari, vermouth, persecco",
+              "Two Market Oysters - horseradish, lemon, mignonette"
+           ],
+            "price": "5"
+          },
+          {
+            "name": "10PM-12AM",
+            "items": [
+              "Fernet + Pils - shot of Fernet + Prost Pilsner",
+              "Perfect Manhattan - rye, carpano, contratto",
+              "Daisy Pizza - tomato sauce, mozzarella, basil",
+              "Sardines & Toast - piada, house butter, sea salt"
+           ],
+            "price": "5"
+          }
+        ]
       }
     ]
   };
