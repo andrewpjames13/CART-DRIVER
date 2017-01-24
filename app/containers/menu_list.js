@@ -37,7 +37,7 @@ class MenuList extends Component {
   renderMenus() {
     return this.props.menuItems.sections.map((section) => {
       return (
-        <div className="menu-section">
+        <div key={section.title} className="menu-section">
           <HeadLine title={section.title} />
           <p className="section-description">{ section.sectionDescription }</p>
           { this.renderMenuItemsList(section.menuItems) }
