@@ -68,25 +68,31 @@ class ScrollContainer extends Component {
   render() {
     return (
       <div className="scroll-container" style={{'width': this.state.containerWidth + '%'}} >
-        <Element name="menu" className="element">
-          <MenuList />
+        <Element name="home" className="element">
+          <div className="home-ph"></div>
         </Element>
 
-        <Element name="photos" className="element">
-          <Photos />
-        </Element>
+        <div className="scroll-body">
+          <Element name="menu" className="element">
+            <MenuList />
+          </Element>
 
-        <Element name="press" className="element">
-          <Press />
-        </Element>
+          <Element name="photos" className="element">
+            <Photos />
+          </Element>
 
-        <Element name="about" className="element">
-          <About />
-        </Element>
+          <Element name="press" className="element">
+            <Press />
+          </Element>
 
-        <Element name="contact" className="element">
-          <Contact />
-        </Element>
+          <Element name="about" className="element">
+            <About />
+          </Element>
+
+          <Element name="contact" className="element">
+            <Contact />
+          </Element>
+        </div>
       </div>
     );
   }
