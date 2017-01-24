@@ -119,7 +119,7 @@ export function menuItems() {
       },
       {
         "title": "Antipasti",
-        "sectionDescription": "",
+        "sectionDescription": "Items marked MP are items whos price changes based on the Market Price",
         "menuItems": [
           {
             "name": "OYSTER*",
