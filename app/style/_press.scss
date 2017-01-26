@@ -1,9 +1,37 @@
 .press-section {
   padding-top: $layoutSpacing;
-  height: 80vh;
+  height: 40vh;
 
   hr {
     margin-bottom: 30px;
   }
+  .press-scroll {
+    width: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .press-item {
+    height: 157px;
+    width: 265px;
+    background-color: $black;
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+
+    .press-content {
+      position: absolute;
+      height: 58%;
+      width: 100%;
+      bottom: 0;
+      padding: 0 20px;
+      color: $white;
+    }
+  }
 }

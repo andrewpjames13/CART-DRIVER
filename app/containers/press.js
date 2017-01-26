@@ -7,6 +7,20 @@ class Press extends Component {
     return (
       <div className="press-section">
         <HeadLine title="Press"/>
+        <div className="press-scroll">
+          <a className="press-item">
+            <div className="press-content">
+              <h4>HeadLine</h4>
+              <p className="bold">Description</p>
+            </div>
+          </a>
+          <a className="press-item">
+            <div className="press-content">
+              <h4>HeadLine</h4>
+              <p className="bold">Description</p>
+            </div>
+          </a>
+        </div>
       </div>
     );
   }
