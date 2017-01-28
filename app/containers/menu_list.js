@@ -16,7 +16,16 @@ class MenuList extends Component {
   }
 
   renderMenuItemsList(array) {
+    let itemPrice = null;
+
     return array.map((item) => {
+      if (item.price) {
+        itemPrice = (
+          <h2 className="item-price">{ item.price }</h2>
+        )
+      } else {
+        itemPrice = ''
+      }
       return (
         <div key={item.name} className="menu-item tiny-100">
           <div className="tiny-80">
@@ -26,7 +35,7 @@ class MenuList extends Component {
             </ul>
           </div>
           <div className="tiny-20">
-            <h2 className="item-price">{ item.price }</h2>
+            { itemPrice }
           </div>
         </div>
       );
