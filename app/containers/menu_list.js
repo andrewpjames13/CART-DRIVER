@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import { bindActionCreators } from 'redux';
 import HeadLine from '../components/head_line';
 
 class MenuList extends Component {

@@ -10,6 +10,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin: 0 -30px;
 
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
@@ -21,9 +22,14 @@
     height: 157px;
     width: 265px;
     background-color: $black;
+    color: $white;
     position: relative;
     display: inline-block;
-    margin-right: 20px;
+    margin-left: 30px;
+
+    &:last-of-type {
+      margin-right: 30px;
+    }
 
     .press-content {
       position: absolute;
@@ -31,7 +37,13 @@
       width: 100%;
       bottom: 0;
       padding: 0 20px;
-      color: $white;
+      p {
+        white-space: normal;
+      }
+    }
+
+    &:hover {
+      color: $green;
     }
   }
 }
