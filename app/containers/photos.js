@@ -70,8 +70,16 @@ class Photos extends PureComponent {
                 key={this.props.photos[this.state.activePhotoIndex].photoSrc}
               />
             </ReactCSSTransitionGroup>
-          <button className="arrow left" onClick={this.leftClick}></button>
-          <button className="arrow right" onClick={this.rightClick}></button>
+          <button className="arrow left" onClick={this.leftClick}>
+            <svg x="0px" y="0px" viewBox="0 0 24 24">
+              <path d="M5,3l3.1-3L20,12L8.1,24L5,21l9-9L5,3z"/>
+            </svg>
+          </button>
+          <button className="arrow right" onClick={this.rightClick}>
+            <svg x="0px" y="0px" viewBox="0 0 24 24">
+              <path d="M5,3l3.1-3L20,12L8.1,24L5,21l9-9L5,3z"/>
+            </svg>
+          </button>
         </div>
       </div>
     );
