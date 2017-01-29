@@ -5,7 +5,7 @@ class PhotoBox extends PureComponent {
   render() {
     return(
       <div className="tile">
-        <img src={this.props.photoSrc}/>
+        <img src={this.props.photoSrc} />
       </div>
     );
   }
