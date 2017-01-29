@@ -1,21 +1,87 @@
 /*jshint esversion: 6 */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import HeadLine from '../components/head_line';
+import PhotoBox from '../components/photo_box';
+import PhotoBackground from '../components/photo_background';
 
-class Photos extends Component {
+class Photos extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.leftClick = this.leftClick.bind(this);
+    this.rightClick = this.rightClick.bind(this);
+
+    this.state = {
+      activePhotoIndex: 0
+    };
+  }
+
+  leftClick() {
+    if (this.state.activePhotoIndex > 0) {
+      this.setState({
+        activePhotoIndex: this.state.activePhotoIndex - 1
+      });
+    }
+
+    if (this.state.activePhotoIndex === 0) {
+      this.setState({
+        activePhotoIndex: this.props.photos.length-1
+      });
+    }
+  }
+
+  rightClick() {
+    if (this.state.activePhotoIndex < this.props.photos.length-1 ) {
+      this.setState({
+        activePhotoIndex: this.state.activePhotoIndex + 1
+      });
+    }
+
+    if (this.state.activePhotoIndex === this.props.photos.length-1) {
+      this.setState({
+        activePhotoIndex: 0
+      });
+    }
+  }
+
   render() {
     return (
       <div className="photo-section">
-        <div className="photo-section--background" style={{'backgroundImage': 'url(images/cart-driver-patio.jpg)'}}></div>
+        <ReactCSSTransitionGroup
+          transitionName="cross-fade"
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}>
+          <PhotoBackground
+            photoSrc={this.props.photos[this.state.activePhotoIndex].photoSrc}
+            key={this.props.photos[this.state.activePhotoIndex].photoSrc}
+          />
+        </ReactCSSTransitionGroup>
+
         <div className="photo-section--content">
           <HeadLine title="Photos" />
-          <div className="tile">
-            <img src="images/cart-driver-patio.jpg"/>
-          </div>
+          <ReactCSSTransitionGroup
+            transitionName="tile"
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}>
+              <PhotoBox
+                photoSrc={this.props.photos[this.state.activePhotoIndex].photoSrc}
+                key={this.props.photos[this.state.activePhotoIndex].photoSrc}
+              />
+            </ReactCSSTransitionGroup>
+          <button className="arrow left" onClick={this.leftClick}></button>
+          <button className="arrow right" onClick={this.rightClick}></button>
         </div>
       </div>
     );
   }
 }
 
-export default Photos;
+function mapStateToProps(state) {
+  return {
+    photos: state.photos
+  }
+}
+
+export default connect(mapStateToProps, actions)(Photos);

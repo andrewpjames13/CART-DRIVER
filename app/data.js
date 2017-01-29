@@ -261,3 +261,13 @@ export function pressItems() {
     }
   ];
 }
+
+export function photos() {
+  return [
+    { photoSrc: 'images/cart-driver-patio.jpg' },
+    { photoSrc: 'images/cart-driver-oven-pizza.jpg' },
+    { photoSrc: 'images/cart-driver-patio.jpg' },
+    { photoSrc: 'images/cart-driver-oven-pizza.jpg' },
+    { photoSrc: 'images/cart-driver-patio.jpg' }
+  ];
+}
