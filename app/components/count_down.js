@@ -28,21 +28,22 @@ class CountDown extends PureComponent {
 
   startIt() {
     let hours = moment().format('h');
+    let amPm = moment().format('A');
     let minutes = moment().format('mm');
     let seconds = moment().format('ss');
     let todaysDate = moment().format('YYYY-M-DT12:00:00');
 
-    if (hours >= '12' && hours <= '24') {
+    if (amPm === 'PM' && hours <= '12') {
       this.setState({
-        hours: 12 - hours,
+        hours: 11 - hours,
         minutes: 60 - minutes,
         seconds: 60 - seconds,
         openCloseTxt: 'CLOSES IN'
       });
     }
-    if (hours < '12') {
+    if (amPm === 'AM' && hours <= '12') {
       this.setState({
-        hours: 12 - hours,
+        hours: 11 - hours,
         minutes: 60 - minutes,
         seconds: 60 - seconds,
         openCloseTxt: 'OPENS IN'
