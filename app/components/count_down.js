@@ -28,14 +28,11 @@ class CountDown extends PureComponent {
 
   startIt() {
     let hours = moment().format('h');
-    let amPm = moment().format('A');
     let minutes = moment().format('mm');
     let seconds = moment().format('ss');
-    let todaysDate = moment().format('YYYY-M-DT12:00:00');
-    console.log('hi', hours, amPm)
-    console.log(amPm === 'PM' && hours <= '12');
-    if (amPm === 'PM' && hours <= '12') {
-      console.log('in');
+    let amPm = moment().format('A');
+
+    if (amPm === 'PM') {
       this.setState({
         hours: 11 - hours,
         minutes: 60 - minutes,
@@ -43,7 +40,7 @@ class CountDown extends PureComponent {
         openCloseTxt: 'CLOSES IN'
       });
     }
-    if (amPm === 'AM' && hours <= '12') {
+    if (amPm === 'AM') {
       this.setState({
         hours: 11 - hours,
         minutes: 60 - minutes,
