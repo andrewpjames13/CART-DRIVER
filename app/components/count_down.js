@@ -32,8 +32,10 @@ class CountDown extends PureComponent {
     let minutes = moment().format('mm');
     let seconds = moment().format('ss');
     let todaysDate = moment().format('YYYY-M-DT12:00:00');
-
-    if (amPm === 'PM' && hours <= '12') {
+    console.log('hi', hours, amPm)
+    console.log(amPm === 'PM' && hours >= '12');
+    if (amPm === 'PM' && hours >= '12') {
+      console.log('in');
       this.setState({
         hours: 11 - hours,
         minutes: 60 - minutes,
