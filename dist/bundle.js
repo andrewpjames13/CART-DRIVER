@@ -26374,8 +26374,8 @@
 	      var seconds = (0, _moment2.default)().format('ss');
 	      var todaysDate = (0, _moment2.default)().format('YYYY-M-DT12:00:00');
 	      console.log('hi', hours, amPm);
-	      console.log(amPm === 'PM' && hours >= '12');
-	      if (amPm === 'PM' && hours >= '12') {
+	      console.log(amPm === 'PM' && hours <= '12');
+	      if (amPm === 'PM' && hours <= '12') {
 	        console.log('in');
 	        this.setState({
 	          hours: 11 - hours,
